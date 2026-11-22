@@ -2334,6 +2334,37 @@ html.v2 .settled-pair .ledger-figures dd {
 html.v2 .settled-pair .ledger-figures > div {
   padding: 8px 12px;
 }
+/* Desktop: tombol Detail tidak lagi melayang (absolute) di atas strip angka.
+   Kartu lebar → Detail jadi kolom sendiri di kanan. Kartu sempit (laptop kecil,
+   panel samping) → tata letak bertumpuk seperti mobile. HP (≤680px) tidak berubah. */
+@media (min-width: 681px) {
+  html.v2 .settled-pair {
+    container-type: inline-size;
+  }
+  @container (max-width: 659px) {
+    html.v2 .settled-pair .ledger-summary {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 4px;
+    }
+  }
+  @container (min-width: 660px) {
+    html.v2 .settled-pair summary {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      column-gap: 16px;
+    }
+    html.v2 .settled-pair .ledger-name {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-right: 0;
+    }
+    html.v2 .settled-pair .ledger-disclose {
+      position: static;
+      white-space: nowrap;
+    }
+  }
+}
 html.v2 .matching-grid {
   display: grid;
   gap: 16px;

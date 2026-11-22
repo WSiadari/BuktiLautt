@@ -194,6 +194,45 @@ test("Gemini hanya memilih alat; periode dari pertanyaan dan angka tetap dari se
   await assert.rejects(ask("total jual ikan bulan ini berapa", f.access, enabled, bad));
 });
 
+test("pertanyaan penjualan berperiode tetap dihitung dari arsip walau Gemini memilih pemeriksaan aktif", async () => {
+  const f = fixture();
+  const pick = (name: string, args: Record<string, unknown> = {}) =>
+    (async () =>
+      Response.json({
+        candidates: [{ finishReason: "STOP", content: { parts: [{ functionCall: { name, args } }] } }],
+      })) as typeof fetch;
+  const inspection = buildInspectionContext(demoDraft());
+  const askWithInspection = (question: string, fetchImpl: typeof fetch) =>
+    runUnifiedAgent({ requestId: "sales-inspection", question, inspection }, enabled, signal(), f.access, fetchImpl, { now });
+
+  // Kasus revisi 1: sebelumnya dijawab "Ikan atau baris mana yang ingin Anda periksa?".
+  for (const tool of ["get_active_inspection", "list_inspection_findings"]) {
+    const answer = await askWithInspection("Ikan apa paling laku bulan ini?", pick(tool));
+    assert.equal(answer.kind, "aggregate");
+    assert.equal(answer.provider.name, "gemini");
+    assert.match(answer.answer, /Paling banyak terjual: Teri \(15 kg\)/);
+  }
+
+  // Kasus revisi 3: Gemini memilih analyze_sales tetapi fokus "overview", sehingga jawabannya
+  // ringkasan total, bukan peringkat ikan. Fokus dari kata kunci pertanyaan yang dipakai.
+  const overview = await askWithInspection(
+    "Ikan apa paling laku bulan ini",
+    pick("analyze_sales", { fromDate: "2026-11-01", toDate: "2026-11-22", focus: "overview" }),
+  );
+  assert.match(overview.answer, /^Penjualan per jenis ikan, 1–22 November 2026 \(WIB\):\n1\. Teri — 15 kg/);
+  assert.match(overview.answer, /Paling banyak terjual: Teri \(15 kg\)/);
+  // Pertanyaan umum tetap memakai fokus pilihan model.
+  const total = await askWithInspection(
+    "total penjualan bulan ini",
+    pick("analyze_sales", { fromDate: "2026-11-01", toDate: "2026-11-22", focus: "overview" }),
+  );
+  assert.match(total.answer, /^Penjualan 1–22 November 2026 \(WIB\): Rp979\.000/);
+
+  // Tanpa periode, pertanyaan tentang ikan di pemeriksaan tetap ke pemeriksaan aktif.
+  const active = await askWithInspection("Kenapa Teri selisih?", pick("list_inspection_findings"));
+  assert.equal(active.kind, "inspection");
+});
+
 test("tanpa akun, analitik arsip meminta masuk", async () => {
   const f = fixture(false);
   const answer = await ask("total jual ikan bulan ini berapa", f.access);

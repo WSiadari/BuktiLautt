@@ -44,7 +44,29 @@ import {
   invalidTool,
   type SalesFocus,
 } from "./unified-agent/tool-schema.ts";
-import type { UnifiedAgentAccess, UnifiedAgentOptions } from "./unified-agent/types.ts";
+import type { Tool, UnifiedAgentAccess, UnifiedAgentOptions } from "./unified-agent/types.ts";
+
+const ACTIVE_INSPECTION_TOOLS = [
+  "get_active_inspection",
+  "list_inspection_findings",
+  "get_inspection_finding",
+];
+/**
+ * Pertanyaan penjualan yang menyebut periode (mis. "ikan apa paling laku bulan ini")
+ * adalah analitik arsip, bukan pertanyaan pemeriksaan aktif. Gemini kadang tetap memilih
+ * alat pemeriksaan karena ada pemeriksaan terbuka dan pertanyaan menyebut "ikan", sehingga
+ * jawabannya malah meminta nama ikan. Bila aturan tetap (sama dengan Panduan dasar)
+ * mengenali analitik penjualan berperiode, pilihan itu yang dipakai.
+ */
+function preferSalesAnalytics(
+  request: UnifiedAgentRequest,
+  call: Tool,
+  now?: Date,
+): Tool {
+  if (!ACTIVE_INSPECTION_TOOLS.includes(call.name)) return call;
+  const rule = selectBasicUnifiedTool(request, now);
+  return rule.name === "analyze_sales" ? rule : call;
+}
 
 // API publik modul ini tetap sama seperti sebelum dipecah.
 export type { UnifiedAgentAccess, UnifiedAgentOptions } from "./unified-agent/types.ts";
@@ -108,7 +130,11 @@ async function executeUnifiedAgent(
     );
   const call = basic
     ? selectBasicUnifiedTool(request, options.now)
-    : await providerTool(request, config, signal, access, fetchImpl, options);
+    : preferSalesAnalytics(
+        request,
+        await providerTool(request, config, signal, access, fetchImpl, options),
+        options.now,
+      );
   signal.throwIfAborted();
   const prefix = basic ? "Panduan dasar · " : "";
   if (call.name === "get_general_help") {
@@ -172,11 +198,7 @@ async function executeUnifiedAgent(
       prefix + messages[call.args.reason],
     );
   }
-  const activeTool = [
-    "get_active_inspection",
-    "list_inspection_findings",
-    "get_inspection_finding",
-  ].includes(call.name);
+  const activeTool = ACTIVE_INSPECTION_TOOLS.includes(call.name);
   const pending = call.name === "get_pending_inspection_tasks";
   if (
     pending &&
@@ -458,7 +480,12 @@ async function analyzeSales(
     ? await access.analyzeArchive({ ...previousPeriod(query.fromDate, query.toDate), counterpartyName })
     : null;
   signal.throwIfAborted();
-  const focus = input.focus as SalesFocus;
+  // Seperti periode, fokus yang jelas dari kata kunci pertanyaan (mis. "paling laku" →
+  // per ikan, "siapa pembeli" → pihak) menang atas tebakan model. Pertanyaan umum
+  // ("total penjualan bulan ini") tetap memakai fokus pilihan model.
+  const ruleFocus = salesIntent(request.question)?.focus;
+  const focus =
+    ruleFocus && ruleFocus !== "overview" ? ruleFocus : (input.focus as SalesFocus);
   const fish = findFish(
     analytics,
     request.question,
