@@ -42,4 +42,4 @@ Riwayat tetap menerima struktur lama. Jawaban gabungan baru menyimpan pasangan `
 
 `server/accounts.test.ts` mencakup HTTP akun, BLOB/foto dan pemulihan, CAS/idempotensi, tim, chat, kedaluwarsa, rollback, serta regresi metadata/pencarian, 404 tanpa kebocoran keberadaan, anggota yang dicabut, dan riwayat gabungan. Seluruh data merupakan fixture sintetis. Uji ini tidak memanggil Gemini, tidak menguji HP fisik, dan tidak menjadi bukti deployment.
 
-Jalankan dari folder aplikasi: `node --experimental-strip-types --test server/accounts-migration.test.ts server/accounts.test.ts`. Rincian hasil akhir dicatat dalam laporan verifikasi Phase 4.7 oleh koordinator.
+Jalankan dari folder aplikasi: `node --experimental-strip-types --test server/accounts-migration.test.ts server/accounts.test.ts`. Rincian hasil akhir ada di [laporan verifikasi Phase 4.7](history/PHASE4_7_VALIDATION.md).

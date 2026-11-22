@@ -2,10 +2,8 @@ import { Fragment, useLayoutEffect, useMemo, useRef, type ReactNode } from "reac
 import type { Draft, Pair } from "../types";
 import { parseKilograms, type PairResult } from "../lib/examination";
 import { normalizeFishName, validatePair } from "../lib/matching";
+import { formatKg as weight } from "../lib/format";
 import { Icon } from "./ui";
-
-const number = new Intl.NumberFormat("id-ID", { maximumFractionDigits: 3 });
-const weight = (value: number | null) => value === null ? "Belum diketahui" : number.format(value) + " kg";
 
 export function PairLedger({ draft, pairResult, errors, onChange, onEvidence, onAdjust, onExplain, receiptNeedsDecision, children }: {
   draft: Draft;

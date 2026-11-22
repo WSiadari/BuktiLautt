@@ -55,5 +55,6 @@ Angka uang dan berat dihitung oleh kode TypeScript, di browser dan di server. Ge
 
 - `src/App.tsx` masih memegang state utama: ±2.400 baris dengan 46 `useState`. Layar tahap sudah menjadi komponen, tetapi state dan efeknya belum.
 - CSS berlapis di 11 berkas; `src/theme.css` dimuat terakhir di `src/main.tsx` dan menimpa aturan berkas sebelumnya.
+- Rute lama `/api/inspection-agent` dan `/api/archive-agent` (`server/inspection-agent.ts`, `server/archive-agent.ts`) masih dilayani dan diuji, tetapi antarmuka hanya memanggil `/api/agent`. `src/services/archiveAgent.ts` tinggal dipakai untuk tipe riwayat chat lama dan tesnya.
 - `npm run lint` tanpa error, tetapi 32 peringatan React Hooks (`exhaustive-deps`, `set-state-in-effect`, `refs`, `immutability`) ditunda karena memperbaikinya mengubah urutan dan pemicu efek.
 - Langkah berikutnya: pindahkan state pemeriksaan ke reducer atau hook per tahap, tangani peringatan Hooks per hook disertai tes, lalu lebur aturan yang ditimpa `theme.css` ke berkas asalnya.

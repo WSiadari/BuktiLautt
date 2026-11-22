@@ -9,7 +9,7 @@ Nelayan, pengepul, dan pencatat TPI sering memegang dua catatan untuk satu penju
 | | |
 | --- | --- |
 | Subtema | Ekonomi dan Pemberdayaan Masyarakat |
-| Tim | [ Yumi (Wahyu Siadari, Michelle Clarissa Watung)] |
+| Tim | Yumi (Wahyu Siadari, Michelle Clarissa Watung) |
 | Website | [ISI: URL publik] |
 | Repo | [ISI: URL publik] |
 
@@ -59,6 +59,8 @@ npm run api   # terminal 1: API di http://127.0.0.1:8787
 npm run dev   # terminal 2: website di http://127.0.0.1:5173
 ```
 
+Vite meneruskan `/api` ke port 8787. Bila API memakai port lain, jalankan `npm run dev` dengan `BUKTILAUT_API_PORT` berisi port tersebut.
+
 Untuk menyajikan website dan API dari satu alamat: `npm run build && npm start`. Server membaca `dist/` dan melayani keduanya di port yang sama.
 
 Salin `.env.example` ke `.env` untuk konfigurasi. Kunci hanya dibaca server. Variabel untuk deploy:
@@ -81,7 +83,7 @@ Arsip demo terpisah: `node evaluation/seed-synthetic.mjs <path-absolut>/demo.sin
 ```bash
 npm run typecheck   # tsc untuk browser dan server
 npm run lint        # ESLint
-npm test            # 231 tes node --test dengan provider AI tiruan
+npm test            # 232 tes node --test dengan provider AI tiruan
 npm run build
 ```
 

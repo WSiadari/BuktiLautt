@@ -21,8 +21,7 @@
     "src/voice/**/*.ts",
     "src/services/vision.ts",
     "src/services/voice.ts",
-    "src/agent/**/*.ts",
-    "src/services/inspectionAgent.ts"
+    "src/agent/**/*.ts"
   ],
   "exclude": [
     "**/*.test.ts"

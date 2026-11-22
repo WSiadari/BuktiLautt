@@ -6,7 +6,7 @@ Ditulis untuk Phase 4 dan diperbarui untuk perilaku server sekarang. Kalimat ber
 
 ## Menjalankan lokal
 
-Jalankan dari folder `buktilaut-interactive-prototype` menggunakan Node.js 24.
+Jalankan dari folder proyek menggunakan Node.js 24.
 
 ```powershell
 npm ci
@@ -14,7 +14,7 @@ Copy-Item .env.example .env
 npm run api
 ```
 
-Terminal kedua menjalankan `npm run dev`. Frontend memakai Vite pada `http://127.0.0.1:5173` dan proxy `/api` ke API `http://127.0.0.1:8787`. Jika port frontend berubah, sesuaikan `VISION_ALLOWED_ORIGINS` dan gunakan origin yang sama saat membuka aplikasi. Port API di proxy harus mengikuti `VISION_PORT`.
+Terminal kedua menjalankan `npm run dev`. Frontend memakai Vite pada `http://127.0.0.1:5173` dan proxy `/api` ke API `http://127.0.0.1:8787`. Jika port frontend berubah, sesuaikan `VISION_ALLOWED_ORIGINS` dan gunakan origin yang sama saat membuka aplikasi. Bila `VISION_PORT` bukan 8787, jalankan `npm run dev` dengan `BUKTILAUT_API_PORT` bernilai sama agar proxy menuju API yang benar.
 
 `.env.example` mempertahankan `VISION_ENABLED=false`, `VISION_DATA_PROCESSING_ACKNOWLEDGED=false`, dan kunci kosong. API tetap dapat dibuka dan status menunjukkan layanan belum tersedia. Pengisian manual serta demo sintetis tetap dapat digunakan. `.env` adalah konfigurasi server, dengan kunci `GEMINI_API_KEY` tanpa awalan `VITE_`.
 
@@ -69,7 +69,7 @@ Galat publik mempunyai kode aman, `retryable`, dan waktu mencoba lagi jika diket
 
 ## Verifikasi dan smoke test
 
-15 tes terfokus lulus untuk skema, angka/satuan, harga tanpa basis, identitas respons lama, callback batal, protokol provider tiruan, output malformed/blocked/empty, decode gambar, origin, header, konfigurasi nonaktif, batas konkurensi, waktu habis, anggaran harian, dan pembatalan saat koneksi terputus. Tes HTTP membutuhkan akses loopback. Tidak ada provider nyata dalam tes. Kompilasi server `npx tsc -p tsconfig.server.json` lulus. Typecheck integrasi penuh ditangani orkestrator setelah perubahan frontend/IndexedDB selesai.
+15 tes terfokus lulus untuk skema, angka/satuan, harga tanpa basis, identitas respons lama, callback batal, protokol provider tiruan, output malformed/blocked/empty, decode gambar, origin, header, konfigurasi nonaktif, batas konkurensi, waktu habis, anggaran harian, dan pembatalan saat koneksi terputus. Tes HTTP membutuhkan akses loopback. Tidak ada provider nyata dalam tes. Kompilasi server `npx tsc -p tsconfig.server.json` lulus. Sekarang `npm run typecheck` memeriksa browser dan server sekaligus.
 
 ```powershell
 node --experimental-strip-types --test --test-timeout=15000 src/vision/contract.test.ts src/services/vision.test.ts server/gemini.test.ts server/app.test.ts
@@ -84,10 +84,10 @@ node --experimental-strip-types --env-file-if-exists=.env server/live-smoke.ts
 Setelah otorisasi eksternal dan konfigurasi tersedia, pengelola dapat menjalankan satu gambar sintetis secara eksplisit.
 
 ```powershell
-node --experimental-strip-types --env-file-if-exists=.env server/live-smoke.ts --enabled receipt evaluation/path-to-synthetic.png
+node --experimental-strip-types --env-file-if-exists=.env server/live-smoke.ts --enabled receipt evaluation/02-clear-receipt.png
 ```
 
-Jalur gambar merupakan placeholder yang harus diganti dengan file evaluasi yang benar-benar ada. Script memvalidasi respons dan mencetak model, jumlah item, serta durasi. Script tidak mengklaim akurasi atau biaya. Penilaian acuan per bidang, gambar tulisan tangan nyata, evaluasi latensi berulang, dan biaya aktual masih tertunda. Tidak ada klaim P0 real-provider smoke telah selesai.
+Untuk catatan timbang, pakai `weighing` dengan berkas seperti `evaluation/01-clear-weighing.png`. Script memvalidasi respons dan mencetak model, jumlah item, serta durasi. Script tidak mengklaim akurasi atau biaya. Penilaian acuan per bidang, gambar tulisan tangan nyata, evaluasi latensi berulang, dan biaya aktual masih tertunda. Tidak ada klaim P0 real-provider smoke telah selesai.
 
 ## Pembaruan keandalan fase 4.3
 

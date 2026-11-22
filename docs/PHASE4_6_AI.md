@@ -10,7 +10,7 @@ Tes mock structured-provider menggunakan 11 baris acuan kompleks: seluruh harga 
 
 ## Pertanyaan arsip
 
-`server/archive-agent.ts` mengekspor `validateArchiveAgentRequest` dan `runArchiveAgent`. Isi POST hanya `{requestId,question}`; workspace dari sesi yang diautentikasi server. Root memasang origin/header, batas badan, kuota bersama, timeout, pembatalan koneksi, dan helper akses arsip dalam `server/app.ts`. Hak sesi/keanggotaan diperiksa lagi saat pembacaan; perpindahan ruang kerja selama permintaan harus menolak hasil lama.
+`server/archive-agent.ts` mengekspor `validateArchiveAgentRequest` dan `runArchiveAgent`. Isi POST hanya `{requestId,question}`; workspace dari sesi yang diautentikasi server. `server/app.ts` memasang origin/header, batas badan, kuota bersama, timeout, pembatalan koneksi, dan helper akses arsip. Hak sesi/keanggotaan diperiksa lagi saat pembacaan; perpindahan ruang kerja selama permintaan harus menolak hasil lama.
 
 Saat provider aktif, satu panggilan Gemini memilih satu alat `summarize_archive({fromDate,toDate})` atau klarifikasi tanggal. Model tidak menerima arsip, nominal transaksi, dokumen, atau ID workspace. Argumen tambahan, workspace dari model, alat tulis, beberapa panggilan alat, tanggal tidak sah, rentang terbalik, dan rentang melebihi 366 hari ditolak. Jawaban menggunakan `summarizeArchive` dari data server yang berhak dibaca; teks bebas dan angka model tidak dipakai.
 
@@ -28,6 +28,6 @@ Kunci dan model server tidak diubah. Tidak ada panggilan berbayar, pembacaan kun
 
 ## Verifikasi
 
-13 tes terfokus lulus: ringkasan total Rp2.696.300 dari dua transaksi dan satu draf, revisi terbaru tanpa duplikasi, akses alat tanggal, argumen tidak sah, batas keluaran, tidak ada fallback palsu, pertanyaan suara bebas, identitas lama, teks tidak valid, dan regresi Gemini. Pemeriksaan tipe server lulus sebelum integrasi akhir root. Root menjalankan pengujian rute dan regresi aplikasi setelah integrasi.
+13 tes terfokus lulus: ringkasan total Rp2.696.300 dari dua transaksi dan satu draf, revisi terbaru tanpa duplikasi, akses alat tanggal, argumen tidak sah, batas keluaran, tidak ada fallback palsu, pertanyaan suara bebas, identitas lama, teks tidak valid, dan regresi Gemini. Pemeriksaan tipe server lulus sebelum integrasi ke `server/app.ts`. Pengujian rute dan regresi aplikasi dijalankan setelah integrasi.
 
 Dokumentasi resmi yang diperiksa 18 November 2026: [GenerateContent REST](https://aistudio.google.com/api-reference/generate-content), [FunctionDeclaration JSON Schema](https://aistudio.google.com/api-reference/caching#Resource:FunctionDeclaration), [function calling](https://aistudio.google.com/docs/function-calling), dan [audio/transkripsi](https://aistudio.google.com/docs/audio). Adapter tetap memakai REST `generateContent`, model terkonfigurasi, dan batas aplikasi yang sudah ada. Dokumen tidak menjanjikan layanan gratis atau retensi nol oleh provider.

@@ -25,12 +25,12 @@ Rombak penuh tampilan. Fungsi, API, perhitungan, akun, dan arsip tetap sama.
   - Halaman akun: `-dashboard`, `-akun-menu`, `-arsip`, `-tim`.
   - Versi `-full` adalah halaman penuh. Pada versi ini header dan action bar dibuat statis dan tombol maskot disembunyikan khusus untuk tangkapan layar.
 - Tidak ada overflow horizontal di 320–1440 px dan tidak ada galat JavaScript.
-- Skenario Complex di `complex/` memakai server QA dengan Gemini mati dan data diisi dari `groundtruth-rows.csv`:
+- Skenario Complex di `complex/` memakai server QA dengan Gemini mati dan data diisi dari `evaluation/complex/groundtruth-rows.csv`:
   - 12 baris timbang dan 11 baris nota.
   - 10 cocok, 1 perlu keputusan sampai penyesuaian dicatat, 1 tanpa pasangan.
   - Dua baris Teri tetap terpisah. Selisih 2 kg menjadi 0 kg. Penyesuaian 3 kg ditolak.
   - Total Rp2.206.300. PDF dibuat, arsip tersimpan, dan jawaban chat memakai Rp2.206.300.
-- Fitur wajib (`complex/fitur-*.png`): mode Foto, Teks, dan Suara; dialog persetujuan AI; daftar akun lalu keluar lalu masuk akun lain; arsip.
+- Fitur wajib (`fitur-*.png`): mode Foto, Teks, dan Suara; dialog persetujuan AI; daftar akun lalu keluar lalu masuk akun lain; arsip.
 - Kontras teks kecil yang baru semuanya ≥4,5:1. Pengecualian hanya tombol nonaktif, yang memang dikecualikan WCAG.
 
 ## Tes

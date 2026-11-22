@@ -15,7 +15,7 @@
 | Waktu | Layar dan narasi |
 |---|---|
 | 0:00–0:15 | Periksa Pasangan. “Catatan timbang menunjukkan 12 kg Teri. Nota mencatat 10 kg. Dua kilo ini perlu penjelasan.” Tunjuk dua dokumen asal. |
-| 0:15–0:40 | Beranda. “Kami [ISI: anggota dan tim]. BuktiLaut membantu nelayan dan pencatat kelompok mencocokkan hasil timbang dengan nota penjualan.” Jelaskan bahwa contoh di layar sintetis. |
+| 0:15–0:40 | Beranda. “Kami tim Yumi, Wahyu Siadari dan Michelle Clarissa Watung. BuktiLaut membantu nelayan dan pencatat kelompok mencocokkan hasil timbang dengan nota penjualan.” Jelaskan bahwa contoh di layar sintetis. |
 | 0:40–1:25 | Tinjau Catatan Timbang dan Nota. Tunjukkan sumber, hasil pembacaan, koreksi kolom yang belum terbaca, lalu konfirmasi dokumen. Sebutkan mode AI yang benar-benar digunakan untuk rekaman. |
 | 1:25–2:25 | Periksa Pasangan. Konfirmasi Teri per baris. Tunjuk 12 kg, 10 kg, dan selisih 2 kg. Buka bukti; tunjukkan satu pasangan dengan berat sama dan cara membuka detailnya. |
 | 2:25–3:00 | Catat “2 kg dibawa pulang”. Sebelum menyimpan tunjukkan pratinjau, lalu setelah menyimpan tunjukkan sumber asli dan sisa 0 kg. |
@@ -32,7 +32,7 @@
 
 ## Draf pengungkapan AI untuk diverifikasi tim
 
-Tim [ISI: nama] memakai OpenAI Codex dan Claude Code untuk membantu menulis kode, tes, refaktor, dan dokumentasi. Skill frontend-design dan ui-ux-pro-max dipakai saat meninjau UI. Semua perubahan ditinjau dan diuji tim. Di aplikasi, Gemini membaca foto, teks, dan suara menjadi usulan baris serta memilih alat baca Ombak Pintar; angka dihitung kode dan keputusan diambil pengguna. Tes otomatis memakai dokumen sintetis dan respons Gemini tiruan. Logo, maskot Ombak Pintar, dan ilustrasi foto pesisir dibuat atau disunting dengan alat gambar generatif ([ASSET-EDIT.md](../ASSET-EDIT.md)). [ISI: kontribusi tiap anggota]. Salin informasi yang sudah diperiksa ke formulir resmi panitia.
+Tim Yumi memakai OpenAI Codex dan Claude Code untuk membantu menulis kode, tes, refaktor, dan dokumentasi. Skill frontend-design dan ui-ux-pro-max dipakai saat meninjau UI. Semua perubahan ditinjau dan diuji tim. Di aplikasi, Gemini membaca foto, teks, dan suara menjadi usulan baris serta memilih alat baca Ombak Pintar; angka dihitung kode dan keputusan diambil pengguna. Tes otomatis memakai dokumen sintetis dan respons Gemini tiruan. Logo, maskot Ombak Pintar, dan ilustrasi foto pesisir dibuat atau disunting dengan alat gambar generatif ([ASSET-EDIT.md](../ASSET-EDIT.md)). [ISI: kontribusi tiap anggota]. Salin informasi yang sudah diperiksa ke formulir resmi panitia.
 
 ## Lembar wawancara dan uji pengguna
 

@@ -2,7 +2,7 @@
 
 ## Menjalankan pembaruan
 
-Pertahankan .env yang sudah dipakai dan origin browser lama agar draf tetap ditemukan. Jangan menyalin contoh kosong di atas kredensial. Jalankan `npm ci`, lalu restart `npm run api` dan `npm run dev` pada dua terminal di folder aplikasi. Voice memakai server yang sudah diperbarui, bukan proses Phase4.3 yang masih berjalan.
+Pertahankan .env yang sudah dipakai dan origin browser lama agar draf tetap ditemukan. Jangan menyalin contoh kosong di atas kredensial. Jalankan `npm ci`, lalu restart `npm run api` dan `npm run dev` pada dua terminal di folder aplikasi. Voice memakai server yang sudah diperbarui, bukan proses Phase 4.3 yang masih berjalan.
 
 ## Android fisik tanpa deployment
 
@@ -14,7 +14,7 @@ Mikrofon browser membutuhkan secure context: HTTPS atau localhost. Membuka alama
 4. Di Chrome HP buka `http://localhost:5173`. Permintaan API diteruskan Vite ke laptop; jangan menjalankan API key di HP.
 5. Untuk langkah debug khusus perangkat lihat [panduan resmi Chrome](https://developer.chrome.com/docs/devtools/remote-debugging/local-server). Jika perangkat tidak muncul, periksa otorisasi USB dan driver; jangan menonaktifkan aturan keamanan browser.
 
-Untuk iPhone/Safari gunakan originHTTPS dengan sertifikat yang dipercaya perangkat dan server/API origin yang dikonfigurasi pengelola. Fase ini tidak men-deploy situs atau memasang sertifikat di HP. Pembuktian Android tidak menggantikan pengujian Safari.
+Untuk iPhone/Safari gunakan origin HTTPS dengan sertifikat yang dipercaya perangkat dan server/API origin yang dikonfigurasi pengelola. Fase ini tidak men-deploy situs atau memasang sertifikat di HP. Pembuktian Android tidak menggantikan pengujian Safari.
 
 ## Suara dan Ombak Pintar
 
@@ -30,12 +30,12 @@ Untuk iPhone/Safari gunakan originHTTPS dengan sertifikat yang dipercaya perangk
 
 ## Nota, nominal dan PDF
 
-1. PilihFoto pada Nota Penjualan, unggah `evaluation/02-clear-receipt.png`, setujuiAI, tinjau lalu tambahkan Teri 10 kg × Rp25.000 dan Tongkol 8 kg×Rp30.000. Koreksi bila perlu.
+1. Pilih Foto pada Nota Penjualan, unggah `evaluation/02-clear-receipt.png`, setujui AI, tinjau lalu tambahkan Teri 10 kg × Rp25.000 dan Tongkol 8 kg × Rp30.000. Koreksi bila perlu.
 2. Sebelum mengisi biaya dan potongan, periksa ringkasan **Belum diketahui**. Isi 0 secara eksplisit: ringkasan harus Rp0. Ubah potongan menjadi 1000: ringkasan harus **Potongan · Rp1.000**, langsung mengikuti input.
-3. Kembalikan potongan 0 dan biaya 0 untuk skenario total Rp490.000. Konfirmasi nota. Total tertulis bukan bukti biaya yang tidak tertulis bernilai0.
-4. Konfirmasi pasangan Teri dan Tongkol. Teri harus12kg↔10kg dengan selisih awal2kg. Catat tidak terjual2kg beserta alasan lalu simpan: sisa 0 kg; berat sumber tetap 12 dan 10 kg. Tongkol 8 kg↔8kg.
-5. Buka laporan, periksa total Rp490.000, lalu **Cetak laporan**→SimpanPDF. Periksa sumber asli/penyesuaian terpisah dan maskot tidak masuk cetakan.
-6. Pada form nota dan sidebar pemeriksaan, periksaRp240.000 danRp490.000 pada layar sempit; digit tidak boleh terpotong/terpisah atau membuat halaman bergulir horizontal. Label boleh turun baris.
+3. Kembalikan potongan 0 dan biaya 0 untuk skenario total Rp490.000. Konfirmasi nota. Total tertulis bukan bukti biaya yang tidak tertulis bernilai 0.
+4. Konfirmasi pasangan Teri dan Tongkol. Teri harus 12 kg ↔ 10 kg dengan selisih awal 2 kg. Catat tidak terjual 2 kg beserta alasan lalu simpan: sisa 0 kg; berat sumber tetap 12 dan 10 kg. Tongkol 8 kg ↔ 8 kg.
+5. Buka laporan, periksa total Rp490.000, lalu **Cetak laporan** → Simpan PDF. Periksa sumber asli/penyesuaian terpisah dan maskot tidak masuk cetakan.
+6. Pada form nota dan sidebar pemeriksaan, periksa Rp240.000 dan Rp490.000 pada layar sempit; digit tidak boleh terpotong/terpisah atau membuat halaman bergulir horizontal. Label boleh turun baris.
 
 ## Status bukti
 

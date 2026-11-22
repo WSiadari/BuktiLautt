@@ -24,7 +24,7 @@ import {
   type UnifiedAgentResponse,
 } from "../agent/unified";
 import type { InspectionAgentResponse } from "../agent/contract";
-import { formatRupiah } from "../lib/format";
+import { formatKg as weight, formatRupiah } from "../lib/format";
 type AgentAnswer = InspectionAgentResponse;
 export type InspectionChatAction = AgentAnswer["actions"][number];
 type Message = {
@@ -97,10 +97,6 @@ const statusLabels: Record<string, string> = {
   review_required: "Perlu ditinjau ulang",
   incomplete: "Data belum lengkap",
 };
-const weight = (value: number | null) =>
-  value === null
-    ? "Belum diketahui"
-    : `${new Intl.NumberFormat("id-ID", { maximumFractionDigits: 3 }).format(value)} kg`;
 const actionLabels = {
   view_finding: "Lihat pasangan",
   view_weighing_source: "Lihat Catatan Timbang",

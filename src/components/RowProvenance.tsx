@@ -1,11 +1,8 @@
 import type { Row } from "../types";
 import { rowWeightProvenance } from "../lib/visionReview";
 import { reviewLanguage } from "../lib/reviewLanguage";
+import { formatKg } from "../lib/format";
 
-const weight = (value: number | null) =>
-  value === null
-    ? "Belum diketahui"
-    : `${value.toLocaleString("id-ID", { maximumFractionDigits: 3 })} kg`;
 export function RowProvenance({
   row,
   confirmed,
@@ -33,7 +30,7 @@ export function RowProvenance({
           : value.status === "filled"
             ? "Berat diisi pengguna"
             : "Isian berat saat ini"}
-        : <strong>{weight(value.currentWeightKg)}</strong>
+        : <strong>{formatKg(value.currentWeightKg)}</strong>
         {value.status === "same" && " · Sama dengan usulan AI saat ini."}
       </p>
       <p>

@@ -40,7 +40,7 @@ Diukur pada 1440×900, 1366×657, 1280×600, dan 390×844 dengan `getBoundingCli
 - Kalimat hero "lalu BuktiLaut mencocokkan beratnya" diganti: "BuktiLaut menyusun pasangan baris, Anda mengonfirmasinya, dan selisih tampil tanpa mengubah angka asli." Ini sesuai kode: pasangan disusun menurut nama ikan dengan status menunggu, lalu dikonfirmasi pengguna.
 - Di HP (≤ 720 px) judul bagian menyisakan lajur kanan 84 px untuk tombol Ombak Pintar yang mengambang.
 
-Diukur dengan `scripts/beranda-fab.mjs` (`getBoundingClientRect` tombol `.ombak-fab` dan teks judul, 390×844, digulir per 20 px dari atas sampai bawah):
+Diukur dengan `../scripts/beranda-fab.mjs` (`getBoundingClientRect` tombol `.ombak-fab` dan teks judul, 390×844, digulir per 20 px dari atas sampai bawah):
 
 | | Sebelum | Sesudah |
 | --- | ---: | ---: |

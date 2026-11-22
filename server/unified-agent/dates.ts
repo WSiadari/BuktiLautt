@@ -16,14 +16,17 @@ const MONTHS = [
   "desember",
 ];
 const isoDay = (date: Date) => date.toISOString().slice(0, 10);
-function jakartaToday(now: Date): Date {
-  const today = new Intl.DateTimeFormat("en-CA", {
+/** Tanggal hari ini menurut WIB dalam bentuk YYYY-MM-DD. */
+export function jakartaDateKey(now: Date): string {
+  return new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Jakarta",
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
   }).format(now);
-  return new Date(today + "T00:00:00Z");
+}
+function jakartaToday(now: Date): Date {
+  return new Date(jakartaDateKey(now) + "T00:00:00Z");
 }
 const NAMED_MONTH = new RegExp(
   `(?<!\\d\\s)\\b(?:bulan\\s+)?(${MONTHS.join("|")})(?:\\s+(\\d{4}))?\\b`,
@@ -89,13 +92,7 @@ export function basicDateRange(question: string, now: Date) {
       throw error;
     }
   }
-  const today = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Asia/Jakarta",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).format(now);
-  const monday = new Date(today + "T00:00:00Z");
+  const monday = jakartaToday(now);
   monday.setUTCDate(monday.getUTCDate() - ((monday.getUTCDay() + 6) % 7));
   const sunday = new Date(monday);
   sunday.setUTCDate(sunday.getUTCDate() + 6);

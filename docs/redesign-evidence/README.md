@@ -24,21 +24,21 @@ Pada sesudah, panel **Nominal dokumen dan tinjauan** tertutup kecuali ada temuan
 | --- | --- |
 | Belum diketahui (kosong), dengan tombol **Isi Rp0** | `complex/complex-02a-status-belum-diketahui-dan-rp0-isian.png`, `complex/complex-log.txt` |
 | Rp0 · isian, belum dikonfirmasi (tombol Isi Rp0 hilang) | file yang sama, kolom Biaya |
-| Rp0 · terkonfirmasi | `after/after-390-nota-rp0-terkonfirmasi.png`, `after/after-print-preview-a4.png` |
+| Rp0 · terkonfirmasi | `after-v1-iterasi/after-390-nota-rp0-terkonfirmasi.png`, `after-v1-iterasi/after-print-preview-a4.png` |
 
 Format Rupiah sekarang memakai satu fungsi, `src/lib/format.ts` (`formatRupiah`), dan menghasilkan "Rp2.206.300" tanpa spasi. Format ini dipakai di Pasangan, Laporan, Arsip, dan chat. Kesamaannya diuji di Arsip dan chat: `complex/complex-log.txt` baris `[arsip]` dan `[chat]`.
 
 ## 3. Posisi Ombak Pintar
 
 - Tombol mengambang dihapus. Ombak Pintar kini ada di **header** (semua halaman) dan di **action bar yang menempel** pada tahap Timbang, Nota, Pasangan, dan Laporan.
-- Pada 390 px, dock (x 16–64) dan tombol **Konfirmasi nota** (x 224–374) tidak bertumpuk. Lihat `scripts/extra.mjs` dan `after/after-390-nota-viewport.png`.
+- Pada 390 px, dock (x 16–64) dan tombol **Konfirmasi nota** (x 224–374) tidak bertumpuk. Lihat `scripts/extra.mjs` dan `after-v1-iterasi/after-390-nota-viewport.png`.
 - Uji Tab (`scripts/focus-obscured.mjs`) pada 77–78 kontrol di Nota dan Pasangan, untuk ukuran 390×844, 1440×900, dan 390×508. Tidak ada elemen fokus yang tertutup penuh oleh header atau action bar.
 - Fokus kembali ke tombol **Buka bantuan Ombak Pintar** setelah panel ditutup dengan Esc.
-- Keyboard virtual **disimulasikan** dengan memperkecil tinggi viewport dari 844 ke 508 px setelah kolom ketik difokuskan. Pada 390 px, area pesan naik dari 156 menjadi 358 px. Kolom ketik dan tombol kirim berada di y 441–489, di dalam layar 508 px. Lihat `before/before-390-chat-keyboard.png` dan `after/after-390-chat-keyboard.png`. Meta `interactive-widget=resizes-content` ditambahkan agar `dvh` mengikuti keyboard di Chrome Android. Hal ini **belum diuji di HP fisik**.
+- Keyboard virtual **disimulasikan** dengan memperkecil tinggi viewport dari 844 ke 508 px setelah kolom ketik difokuskan. Pada 390 px, area pesan naik dari 156 menjadi 358 px. Kolom ketik dan tombol kirim berada di y 441–489, di dalam layar 508 px. Lihat `before/before-390-chat-keyboard.png` dan `after-v1-iterasi/after-390-chat-keyboard.png`. Meta `interactive-widget=resizes-content` ditambahkan agar `dvh` mengikuti keyboard di Chrome Android. Hal ini **belum diuji di HP fisik**.
 
 ## 4. Skenario Complex (`complex/`)
 
-Kondisi: build produksi (`vite preview` :4173). Server QA :8788 memakai `VISION_ENABLED=false` dan basis data sintetis di folder sementara. Foto sumber `SINTETIS-*-clear.png` diunggah, lalu baris **diisi manual dari `groundtruth-rows.csv`** (fixture, bukan pembacaan Gemini).
+Kondisi: build produksi (`vite preview` :4173). Server QA :8788 memakai `VISION_ENABLED=false` dan basis data sintetis di folder sementara. Foto sumber `SINTETIS-*-clear.png` diunggah, lalu baris **diisi manual dari `evaluation/complex/groundtruth-rows.csv`** (fixture, bukan pembacaan Gemini).
 
 Hasil (`complex/complex-log.txt`):
 - 12 baris timbang dan 11 baris nota.

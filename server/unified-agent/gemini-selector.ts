@@ -7,6 +7,7 @@ import {
 } from "../../src/agent/contract.ts";
 import type { VisionConfig } from "../config.ts";
 import { VisionError } from "../errors.ts";
+import { jakartaDateKey } from "./dates.ts";
 import {
   UNIFIED_READ_TOOLS,
   UNIFIED_UTILITY_TOOLS,
@@ -41,12 +42,7 @@ export async function providerTool(
           {
             text: JSON.stringify({
               question: request.question,
-              todayWIB: new Intl.DateTimeFormat("en-CA", {
-                timeZone: "Asia/Jakarta",
-                year: "numeric",
-                month: "2-digit",
-                day: "2-digit",
-              }).format(options.now ?? new Date()),
+              todayWIB: jakartaDateKey(options.now ?? new Date()),
               workspaceName: access.workspace?.name ?? null,
               hasActiveInspection: !!request.inspection,
               resolvedInspectionIntent: resolved?.kind ?? null,
