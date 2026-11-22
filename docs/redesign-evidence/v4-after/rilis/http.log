@@ -1,0 +1,18 @@
+== http://127.0.0.1:8795
+GET /                    200 text/html; charset=utf-8
+GET /masuk               200 text/html; charset=utf-8
+GET /arsip               200 text/html; charset=utf-8
+GET /api/vision/status   200 application/json; charset=utf-8
+GET /api/tidak-ada       404 application/json; charset=utf-8
+GET /.env                404 application/json; charset=utf-8
+GET / Host: evil.example 403 application/json; charset=utf-8
+GET /api/vision/status Host: evil.example 403 application/json; charset=utf-8
+== http://127.0.0.1:8787
+GET /                    200 text/html; charset=utf-8
+GET /masuk               200 text/html; charset=utf-8
+GET /arsip               200 text/html; charset=utf-8
+GET /api/vision/status   200 application/json; charset=utf-8
+GET /api/tidak-ada       404 application/json; charset=utf-8
+GET /.env                404 application/json; charset=utf-8
+GET / Host: evil.example 403 application/json; charset=utf-8
+GET /api/vision/status Host: evil.example 403 application/json; charset=utf-8

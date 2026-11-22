@@ -1,0 +1,986 @@
+:root {
+  --motion-quick: 140ms;
+  --motion-state: 220ms;
+  --motion-step: 260ms;
+  --motion-ease: cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+.ombak-character {
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+  background: white;
+  flex: none;
+}
+.ombak-character.ombak-size-small {
+  width: 64px;
+  height: 54px;
+}
+.ombak-character.ombak-size-medium {
+  width: 94px;
+  height: 80px;
+}
+.ombak-character.ombak-size-hero {
+  width: 215px;
+  height: 191px;
+  background: transparent;
+}
+.ombak-layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  pointer-events: none;
+}
+.ombak-crop {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  overflow: hidden;
+}
+.ombak-character .ombak-crop img {
+  position: absolute;
+  max-width: none;
+  pointer-events: none;
+}
+.ombak-character .ombak-hero-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-width: 100%;
+}
+.ombak-animated .ombak-current {
+  animation: ombak-enter var(--motion-state) var(--motion-ease) both;
+}
+.ombak-outgoing {
+  animation: ombak-leave var(--motion-state) var(--motion-ease) both;
+}
+.ombak-state-mark {
+  position: absolute;
+  bottom: 3px;
+  right: 1px;
+  display: grid;
+  place-items: center;
+  background: #fff5dc;
+  color: #825200;
+  border: 1px solid #d8ba7a;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 3;
+}
+.chat-launcher .ombak-character {
+  width: 44px;
+  height: 38px;
+}
+.workspace ~ .chat-launcher .ombak-character {
+  width: 40px;
+  height: 36px;
+}
+.ombak-intro .ombak-character {
+  background: transparent;
+}
+.vision-processing {
+  position: relative;
+  border: 1px solid #b8d1e4;
+  border-radius: 10px;
+  background: #f4f9fd;
+  padding: 17px;
+  margin-bottom: 22px;
+  overflow: hidden;
+  animation: vision-entrance var(--motion-step) var(--motion-ease) both;
+}
+.vision-processing-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #d8e7f2;
+}
+.vision-mode {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #103d65;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+.vision-mode > span {
+  width: 6px;
+  height: 6px;
+  background: #268cb4;
+  border-radius: 50%;
+}
+.vision-indeterminate {
+  display: flex;
+  gap: 4px;
+}
+.vision-indeterminate i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #5d8ca8;
+  animation: vision-dot 1.3s ease-in-out infinite;
+}
+.vision-indeterminate i:nth-child(2) {
+  animation-delay: 0.14s;
+}
+.vision-indeterminate i:nth-child(3) {
+  animation-delay: 0.28s;
+}
+.vision-processing-body {
+  display: grid;
+  grid-template-columns: 125px 1fr;
+  gap: 19px;
+  align-items: center;
+  padding: 18px 0;
+}
+.vision-document {
+  position: relative;
+  border: 1px solid #d2dfe9;
+  background: #fff;
+  min-width: 0;
+  height: 152px;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 4px 15px #103d6508;
+}
+.vision-document > pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding: 13px 10px;
+  font-size: 6px;
+  line-height: 2.05;
+  margin: 0;
+  color: #607587;
+  user-select: none;
+}
+.vision-document > img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+}
+.vision-document-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 7px;
+  background: #f3f8fcf0;
+  font-size: 8px;
+  color: #627f94;
+  line-height: 1.4;
+  border-top: 1px solid #e2ebf2;
+}
+.vision-scan-line {
+  position: absolute;
+  inset: -20% 0 auto;
+  height: 21%;
+  background: linear-gradient(180deg, transparent, #268cb417);
+  border-bottom: 1px solid #268cb469;
+  box-shadow: 0 5px 12px #268cb40c;
+  animation: vision-scan 1.5s var(--motion-ease) 2;
+  pointer-events: none;
+}
+.vision-status {
+  min-width: 0;
+}
+.vision-status > .ombak-character {
+  margin-bottom: 5px;
+  background: white;
+  border-radius: 9px;
+}
+.vision-status h3 {
+  font-size: 17px;
+  line-height: 1.35;
+  margin-bottom: 7px;
+}
+.vision-status p {
+  font-size: 11px;
+  line-height: 1.75;
+}
+.vision-skeleton {
+  display: grid;
+  grid-template-columns: 1.25fr 0.7fr 0.9fr;
+  gap: 9px;
+  padding: 13px 0 17px;
+}
+.vision-skeleton span {
+  height: 12px;
+  border-radius: 3px;
+  background: #dbe9f3;
+  animation: vision-breathe 1.8s ease-in-out infinite;
+}
+.vision-skeleton span:nth-child(n + 4) {
+  height: 31px;
+  background: #e1edf6;
+  animation-delay: 0.2s;
+}
+.vision-processing-footer {
+  border-top: 1px solid #d8e7f2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 8px;
+}
+.vision-processing-footer p {
+  font-size: 10px;
+  line-height: 1.6;
+}
+.vision-processing-footer .text-button {
+  font-size: 11px;
+  min-height: 44px;
+  flex: none;
+}
+.previous-fields-label {
+  font-size: 11px;
+  color: #5a6f80;
+  padding: 9px 0 14px;
+  border-bottom: 1px solid #e2eaf0;
+  margin-bottom: 16px;
+}
+.vision-result-message {
+  align-items: center;
+}
+.vision-result-message .ombak-character {
+  width: 62px;
+  height: 52px;
+  border-radius: 6px;
+}
+.vision-result-message > div {
+  flex: 1;
+  min-width: 0;
+}
+.vision-result-message strong {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.vision-result-message p {
+  font-size: 12px;
+  line-height: 1.75;
+}
+.vision-results-visible > .fish-row {
+  animation: vision-entrance var(--motion-step) var(--motion-ease) both;
+}
+.vision-results-visible > .fish-row:nth-child(2) {
+  animation-delay: 45ms;
+}
+.vision-results-visible > .fish-row:nth-child(n + 3) {
+  animation-delay: 80ms;
+}
+.source-ready {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 11px;
+  color: #496e82;
+  border-top: 1px solid #e1ebf2;
+  padding: 11px 0;
+  margin-bottom: 10px;
+}
+.source-ready strong {
+  color: #103d65;
+  font-size: 11px;
+}
+.source-ready p {
+  font-size: 10px;
+  line-height: 1.6;
+}
+.source-ready .ombak-character {
+  width: 45px;
+  height: 40px;
+  border-radius: 5px;
+}
+.source-remove {
+  display: block;
+  font-size: 11px;
+  margin-top: -10px;
+  margin-bottom: 12px;
+}
+.pair-card {
+  transition:
+    border-color var(--motion-state),
+    box-shadow var(--motion-state),
+    background-color var(--motion-state);
+}
+.pair-card.pair-confirmed {
+  border-color: #b4d4c2;
+  box-shadow: inset 3px 0 #76a78b;
+}
+.pair-card.pair-confirmed .badge.success {
+  animation: pair-acknowledge 350ms var(--motion-ease) both;
+}
+.pair-finding {
+  animation: vision-entrance var(--motion-step) var(--motion-ease) both;
+}
+.adjustment-preview {
+  transition:
+    background-color var(--motion-state),
+    border-color var(--motion-state);
+}
+.adjustment-preview:has(strong:not(:empty)) {
+  border-color: #d7bb7f;
+}
+.callout.success {
+  animation: vision-entrance var(--motion-state) var(--motion-ease) both;
+}
+.callout.success .ombak-character {
+  width: 42px;
+  height: 37px;
+  border-radius: 5px;
+}
+.workflow-content {
+  animation: workflow-enter var(--motion-step) var(--motion-ease) both;
+}
+.chat-identity {
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e0eaf2;
+}
+.chat-identity .ombak-character {
+  width: 77px;
+  height: 64px;
+}
+.chat-identity .badge {
+  font-size: 11px;
+}
+.chat-typing {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid #e0eaf2;
+  background: #f6fafd;
+  border-radius: 0 10px 10px 10px;
+  align-self: flex-start;
+  max-width: 100%;
+  font-size: 11px;
+  color: #5a6f80;
+}
+.chat-typing-dots {
+  display: flex;
+  gap: 4px;
+  flex: none;
+}
+.chat-typing-dots i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #5b829e;
+  animation: vision-dot 1.3s ease-in-out infinite;
+}
+.chat-typing-dots i:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.chat-typing-dots i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.message {
+  animation: vision-entrance var(--motion-state) var(--motion-ease) both;
+}
+.chat-messages .callout.error {
+  margin-bottom: 0;
+  font-size: 12px;
+  flex-direction: column;
+}
+.chat-messages .message p {
+  font-size: 12px;
+}
+.chat-context {
+  font-size: 11px !important;
+}
+.chat-disclosure {
+  font-size: 11px !important;
+}
+.landing .hero-evidence {
+  transition: box-shadow var(--motion-step);
+}
+.landing .hero-evidence:hover {
+  box-shadow: 0 20px 55px #103d6514;
+}
+@keyframes ombak-enter {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes ombak-leave {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes vision-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes vision-scan {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(730%);
+    opacity: 0;
+  }
+}
+@keyframes vision-dot {
+  0%,
+  70%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  35% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+@keyframes vision-breathe {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes pair-acknowledge {
+  0% {
+    transform: scale(0.97);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes workflow-enter {
+  from {
+    opacity: 0.3;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 540px) {
+  .vision-processing {
+    padding: 14px;
+  }
+  .vision-processing-body {
+    grid-template-columns: 92px 1fr;
+    gap: 14px;
+    padding: 14px 0;
+  }
+  .vision-document {
+    height: 143px;
+  }
+  .vision-document > pre {
+    font-size: 5.5px;
+    padding: 10px 7px;
+  }
+  .vision-status > .ombak-character {
+    width: 78px;
+    height: 64px;
+  }
+  .vision-status h3 {
+    font-size: 15px;
+  }
+  .vision-status p {
+    font-size: 11px;
+  }
+  .vision-mode {
+    font-size: 10px;
+  }
+  .vision-processing-footer {
+    align-items: flex-start;
+    gap: 7px;
+  }
+  .vision-processing-footer p {
+    font-size: 10px;
+    padding-top: 8px;
+    max-width: 130px;
+  }
+  .vision-processing-footer .text-button {
+    font-size: 11px;
+    padding-inline: 0;
+  }
+  .vision-result-message {
+    align-items: flex-start;
+  }
+  .vision-result-message .ombak-character {
+    width: 54px;
+    height: 47px;
+  }
+  .vision-result-message p {
+    font-size: 12px;
+  }
+  .vision-result-message strong {
+    font-size: 12px;
+  }
+  .field {
+    font-size: 12px;
+  }
+  .field small {
+    font-size: 11px;
+    line-height: 1.55;
+  }
+  .fish-row .badge {
+    font-size: 10px;
+    min-height: 25px;
+  }
+  .panel-heading .eyebrow,
+  .page-intro .eyebrow {
+    font-size: 10px;
+  }
+  .source-panel > .meta {
+    font-size: 11px;
+  }
+  .source-caption {
+    font-size: 10px;
+  }
+  .source-caption small {
+    font-size: 10px;
+    line-height: 1.65;
+  }
+  .confirmation-note p {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+  .pair-actions .meta {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+  .pair-sources .eyebrow {
+    font-size: 10px;
+  }
+  .pair-sources .text-button {
+    font-size: 11px;
+  }
+  .pair-card .panel-heading .badge {
+    font-size: 10px;
+  }
+  .result-panel > .meta {
+    font-size: 11px;
+  }
+  .chat-prompts button {
+    font-size: 11px;
+  }
+  .chat-form input::placeholder {
+    font-size: 12px;
+    color: #5a6f80;
+  }
+  .chat-disclosure {
+    font-size: 11px !important;
+  }
+  .chat-messages .message p {
+    font-size: 12px;
+  }
+  .chat-typing {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  .chat-identity .meta {
+    font-size: 11px;
+  }
+  .source-ready p {
+    font-size: 11px;
+  }
+  .stepper button {
+    font-size: 10px;
+  }
+  .stepper .step-number {
+    font-size: 11px;
+  }
+  .context-row .revision {
+    font-size: 10px;
+  }
+}
+@media (max-width: 350px) {
+  .vision-processing-body {
+    grid-template-columns: 75px 1fr;
+    gap: 12px;
+  }
+  .vision-document {
+    height: 141px;
+  }
+  .vision-status h3 {
+    font-size: 14px;
+  }
+  .vision-status > .ombak-character {
+    width: 69px;
+    height: 58px;
+  }
+  .vision-result-message {
+    gap: 8px;
+  }
+  .vision-result-message .ombak-character {
+    width: 42px;
+    height: 40px;
+  }
+  .vision-processing-footer {
+    flex-direction: column;
+    gap: 0;
+  }
+  .vision-processing-footer p {
+    max-width: none;
+    padding-top: 4px;
+  }
+  .vision-processing-footer .text-button {
+    justify-content: flex-start;
+  }
+  .stepper button {
+    font-size: 9px;
+  }
+  .pair-card .panel-heading .badge {
+    max-width: 145px;
+    font-size: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ombak-layer,
+  .vision-processing,
+  .vision-skeleton span,
+  .vision-indeterminate i,
+  .vision-results-visible > .fish-row,
+  .pair-card.pair-confirmed .badge.success,
+  .pair-finding,
+  .callout.success,
+  .workflow-content,
+  .message,
+  .chat-typing-dots i {
+    animation: none !important;
+    transition: none !important;
+  }
+  .ombak-outgoing {
+    display: none;
+  }
+  .vision-scan-line {
+    display: none;
+  }
+  .vision-skeleton span {
+    opacity: 0.8;
+  }
+  .vision-indeterminate i,
+  .chat-typing-dots i {
+    opacity: 0.8;
+    transform: none;
+  }
+  .landing .hero-evidence {
+    transition: none;
+  }
+}
+@media print {
+  .ombak-character,
+  .vision-processing {
+    display: none !important;
+  }
+  .workflow-content {
+    animation: none;
+  }
+  .pair-card {
+    box-shadow: none;
+  }
+}
+
+.modal.modal-closing {
+  animation: modal-exit 140ms var(--motion-ease) both;
+  pointer-events: none;
+}
+.modal.modal-closing::backdrop {
+  animation: modal-backdrop-exit 140ms ease both;
+}
+@keyframes modal-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(5px) scale(0.995);
+  }
+}
+@keyframes modal-backdrop-exit {
+  to {
+    opacity: 0;
+  }
+}
+@media (max-width: 540px) {
+  .field {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  .field small {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+  .field input::placeholder,
+  .field textarea::placeholder {
+    font-size: 13px;
+  }
+  .field input,
+  .field textarea,
+  .field select {
+    font-size: 16px;
+  }
+  .source-panel > .meta,
+  .source-caption,
+  .source-caption small,
+  .source-ready p,
+  .source-ready strong,
+  .confirmation-note p,
+  .fees > .meta,
+  .previous-fields-label {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .source-caption {
+    align-items: flex-start;
+    overflow-wrap: anywhere;
+  }
+  .source-caption > span {
+    min-width: 0;
+  }
+  .source-remove {
+    font-size: 13px;
+    min-height: 44px;
+  }
+  .fish-row .badge {
+    font-size: 11px;
+    line-height: 1.5;
+    min-height: 28px;
+  }
+  .page-intro p:not(.eyebrow) {
+    font-size: 13px;
+  }
+  .page-intro .eyebrow,
+  .panel-heading .eyebrow {
+    font-size: 11px;
+  }
+  .data-panel .panel-heading > .badge {
+    font-size: 11px;
+  }
+  .stepper {
+    display: flex;
+    gap: 5px;
+  }
+  .stepper li {
+    flex: 0 0 38px;
+    min-width: 0;
+  }
+  .stepper li.current {
+    flex: 1;
+  }
+  .stepper button {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    gap: 8px;
+    padding: 0 0 13px;
+    width: 100%;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .stepper li.current button {
+    justify-content: flex-start;
+  }
+  .stepper .step-number {
+    width: 27px;
+    height: 27px;
+    font-size: 12px;
+  }
+  .stepper li:not(.current) button > span:last-child {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+  .stepper li.current button > span:last-child {
+    min-width: 0;
+    overflow-wrap: normal;
+  }
+  .context-row .revision {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  .action-bar > .button,
+  .action-bar > div > .button {
+    font-size: 13px !important;
+    min-height: 48px;
+    line-height: 1.45;
+  }
+  .action-bar > div > .button {
+    padding-inline: 12px;
+  }
+  .pair-actions > .button,
+  .pair-finding .button {
+    font-size: 13px;
+    min-height: 46px;
+  }
+  .pair-actions .meta,
+  .pair-finding small,
+  .result-panel > .meta,
+  .pair-sources .eyebrow {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .pair-sources .text-button,
+  .pair-actions > .text-button {
+    font-size: 12px;
+    min-height: 44px;
+  }
+  .pair-card .panel-heading .badge {
+    font-size: 11px;
+    max-width: 155px;
+  }
+  .result-panel .callout.compact p {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .result-panel .button {
+    font-size: 13px;
+  }
+  .pair-finding span {
+    font-size: 12px;
+  }
+  .pair-finding strong {
+    font-size: 28px;
+  }
+  .vision-mode {
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+  .vision-status p,
+  .vision-processing-footer p,
+  .vision-processing-footer .text-button {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+  .vision-processing-footer .text-button {
+    min-height: 44px;
+  }
+  .vision-result-message strong {
+    font-size: 13px;
+  }
+  .vision-result-message p {
+    font-size: 12px;
+  }
+  .vision-processing-footer {
+    flex-wrap: wrap;
+  }
+  .vision-processing-footer p {
+    max-width: 130px;
+  }
+  .chat-disclosure,
+  .chat-context,
+  .chat-identity .meta,
+  .chat-typing {
+    font-size: 12px !important;
+    line-height: 1.7;
+  }
+  .chat-prompts button {
+    font-size: 12px;
+    min-height: 44px;
+  }
+  .chat-messages .message p {
+    font-size: 13px;
+    line-height: 1.75;
+  }
+  .chat-messages .message strong {
+    font-size: 12px;
+  }
+  .modal > .text-button.small {
+    font-size: 12px;
+  }
+  .modal > .meta {
+    font-size: 12px;
+  }
+  .adjustment-source > span,
+  .adjustment-source p,
+  .adjustment-preview span {
+    font-size: 12px;
+  }
+  .adjustment-source p {
+    line-height: 1.7;
+  }
+  .adjustment-preview .badge {
+    font-size: 11px;
+  }
+  .modal-actions > .button {
+    font-size: 13px;
+  }
+}
+@media (max-width: 350px) {
+  .stepper li {
+    flex-basis: 35px;
+  }
+  .stepper button {
+    font-size: 13px;
+    gap: 7px;
+  }
+  .stepper .step-number {
+    width: 26px;
+    height: 26px;
+  }
+  .pair-card .panel-heading {
+    flex-wrap: wrap;
+  }
+  .pair-card .panel-heading .badge {
+    font-size: 11px;
+    max-width: none;
+  }
+  .vision-processing-footer p {
+    max-width: none;
+  }
+  .vision-mode {
+    font-size: 11px;
+  }
+  .source-ready {
+    gap: 8px;
+  }
+  .modal-actions > .button {
+    font-size: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .modal.modal-closing,
+  .modal.modal-closing::backdrop {
+    animation: none !important;
+  }
+}

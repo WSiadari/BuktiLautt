@@ -1,0 +1,51 @@
+# Ombak Pintar — kontrak dan batas layanan (Phase 4.7, diperbarui 4.8)
+
+`POST /api/agent` menerima `UnifiedAgentRequest` dari `src/agent/unified.ts`: `requestId`, `question`, dan opsional proyeksi pemeriksaan aktif serta `findingId` dari pilihan eksplisit. Root memasang rute, status, origin/header, sesi, kuota bersama, timeout, pembatalan koneksi, dan pemeriksaan ruang kerja ulang di `server/app.ts`. `server/unified-agent.ts` hanya menerima callback akses yang sudah dibatasi sesi. Sejak Phase 4.8 modul ini dipecah: `server/unified-agent/tool-schema.ts` (daftar alat dan validasi argumen), `basic-selector.ts` (pemilih dasar), `gemini-selector.ts` (pemilihan alat lewat Gemini), `dates.ts` (tanggal WIB), dan `answers.ts` (teks jawaban). API publiknya tetap `server/unified-agent.ts`. Tidak ada workspace ID, SQL, URL provider, atau jalur berkas dari model yang digunakan untuk memilih data.
+
+Sembilan alat baca: `get_active_inspection`, `list_inspection_findings`, `get_inspection_finding`, `search_archived_transactions`, `get_archived_transaction`, `calculate_transaction_totals`, `count_transactions`, `get_pending_inspection_tasks`, dan `analyze_sales`. Dua fungsi utilitas tanpa pembacaan database adalah `get_general_help` dan `request_clarification`. Semuanya memiliki argumen dengan kunci yang dibatasi; tidak ada alat tulis. Satu jawaban memakai paling banyak satu pilihan alat. Alat transaksi individual memakai referensi BL, bukan ID database yang dibuat model.
+
+Gemini hanya menerima pertanyaan, tanggal hari ini dalam WIB, nama ruang kerja aktif, apakah ada pemeriksaan, jenis kecocokan ikan, dan satu ID temuan yang sudah diselesaikan server bila tunggal. Foto, rekaman, transkrip catatan timbang, catatan alasan, nilai berat, dan seluruh arsip tidak dikirim untuk pemilihan alat. Angka, kartu, jumlah transaksi, serta nominal jawaban berasal dari helper deterministik dan callback arsip yang berwenang. Teks bebas model tidak dipakai sebagai jawaban. Respons akhir melewati validator bersama.
+
+Nama ikan yang tidak ada menghasilkan pesan tidak ditemukan; nama berulang meminta pilihan. ID ikan lain ditolak. Tindak lanjut dengan frasa yang dikenali mengembalikan tindakan ke temuan yang benar. Jika model memilih alat tindak lanjut untuk frasa lain, server mengembalikan hitungan status yang terverifikasi; tidak membuat tautan dari ID dugaan.
+
+Nama tim/ruang yang berbeda dan permintaan arsip pribadi ketika ruang tim aktif meminta pergantian eksplisit sebelum pembacaan. Callback rute memeriksa ulang sesi dan keanggotaan pada setiap akses serta sebelum jawaban selesai. Permintaan lama ditolak jika sesi atau ruang berubah; browser juga harus membatalkan saat pemeriksaan/revisi/ruang berubah. Tamu tetap bisa memakai pemeriksaan lokal dan panduan; pembacaan arsip memerlukan akun. Transaksi tidak ditemukan dan transaksi yang tidak berhak dibaca memakai pesan ketidaktersediaan yang sama.
+
+## Analisis penjualan (`analyze_sales`)
+
+Alat ini membaca transaksi terkonfirmasi dalam satu rentang tanggal melalui callback `analyzeArchive` yang sudah dibatasi ke ruang kerja aktif. Argumennya `fromDate`, `toDate`, `focus`, serta opsional `fishName`, `counterpartyName`, dan `compare`. Fokus yang tersedia:
+
+- `overview`: total Rupiah, kg terjual, dan ikan terbanyak.
+- `fish`: kg, nilai baris nota, dan harga rata-rata per jenis ikan, atau satu ikan bila disebut.
+- `weight`: berat timbang dan berat nota, selisih awal, berat yang dicatat tidak terjual, dan selisih yang masih terbuka.
+- `counterparty`: pihak transaksi, diurutkan dari nilai terbesar.
+- `daily`: total per hari.
+
+`compare=true` menambahkan periode pembanding. Untuk rentang yang dimulai tanggal 1 dan berada dalam satu bulan, pembandingnya bulan sebelumnya; bila bulan berjalan belum selesai, pembanding dipotong sampai tanggal yang sama. Rentang lain dibandingkan dengan jumlah hari yang sama tepat sebelumnya. Semua angka dihitung `src/lib/archiveAnalytics.ts` dari revisi terkonfirmasi terbaru tiap transaksi. Draf disebut jumlahnya, tetapi tidak dijumlahkan. Transaksi dengan total belum lengkap dilaporkan sebagai "total Rupiah belum pasti", tidak dianggap nol. Rentang tanggal yang dapat dibaca server dari pertanyaan selalu menang atas usulan model, begitu juga pihak yang disebut setelah "dengan". Ikan yang tidak ada pada periode itu menghasilkan klarifikasi berisi daftar jenis yang ada. Tamu diminta masuk.
+
+## Makna kueri
+
+- Total dan jumlah transaksi secara default memakai status terkonfirmasi. Model tidak dapat memperluasnya menjadi semua status atau draf. Status draf/semua hanya dipakai bila pertanyaan secara eksplisit menyebutnya; pengecualian draf tetap terkonfirmasi.
+- Helper domain memakai revisi terkonfirmasi terbaru tiap identitas, bukan menjumlahkan semua revisi. Kueri `all`/`draft` menampilkan revisi terkini sesuai kontrak domain. Total draf tetap belum diketahui.
+- Nol, tidak ada transaksi, nominal belum diketahui, dan overflow dibedakan. Halaman berisi paling banyak 50 kartu; agregat dihitung dari seluruh kecocokan, bukan hanya halaman itu. Rentang tanggal eksplisit dibatasi 366 hari.
+- Pencarian dapat memakai tanggal lengkap, pihak transaksi, referensi, dan nomor nota. Tahun pada “20 November” tidak diasumsikan dari percakapan sebelumnya karena request tidak membawa riwayat penafsiran tanggal; pengguna diminta melengkapinya.
+- Pihak yang disebut eksplisit setelah “dengan” dipertahankan pada total, hitungan, dan pencarian, termasuk ketika model menghilangkan atau mengganti filternya. Nama ambigu meminta klarifikasi sebelum pembacaan. Status pencarian yang disebut eksplisit (terkonfirmasi/draf/semua status) juga mengikat usulan model; pencarian tidak diperluas ke draf ketika pengguna hanya meminta transaksi terkonfirmasi.
+
+Jika Gemini belum tersedia, `provider.name='basic'` melabeli fallback deterministik. Fallback mendukung pertanyaan pemeriksaan yang teratasi jelas, panduan tertentu, referensi, nomor nota, pihak transaksi, dan pertanyaan penjualan (`analyze_sales`) yang menyebut periode. Tanggal yang dikenali, semuanya dalam WIB:
+
+- tanggal lengkap (`2026-11-20` atau `20 November 2026`, satu tanggal atau rentang dua tanggal) dan `hari ini`;
+- tanggal relatif: `kemarin`, `minggu ini` (Senin–Minggu kalender), `minggu lalu`/`minggu kemarin`, `bulan ini`/`bulan sekarang`, `bulan lalu`/`bulan kemarin`/`bulan sebelumnya`, `tahun ini`/`tahun sekarang`, dan `N hari terakhir` (1–366 hari, termasuk hari ini);
+- nama bulan, misalnya `bulan Oktober` atau `Oktober 2026`. Tanpa tahun, bulan berjalan dan bulan-bulan sebelumnya dibaca pada tahun ini, sedangkan bulan sesudahnya dibaca sebagai tahun lalu.
+
+Tanggal dengan hari tetapi tanpa tahun (misalnya "20 November") tetap meminta tahun. Frasa arsip yang belum didukung meminta klarifikasi dan tidak dialihkan ke ikan aktif. Bahasa bebas lain mungkin perlu tanggal lengkap atau Gemini. Galat dari Gemini yang aktif tidak diam-diam berubah menjadi jawaban dasar.
+
+## Retry dan pembatalan
+
+Satu pemilihan alat memiliki paling banyak **3 percobaan HTTP total** untuk kegagalan jaringan atau HTTP 5xx sementara, dengan jeda 1 lalu 2 detik. `Retry-After` sampai 3 detik dihormati bila lebih lama dari jeda dasar; di atas 3 detik berhenti. HTTP 429 tidak dicoba ulang otomatis. HTTP 4xx, JSON tidak valid, alat/argumen salah, keluaran terlalu besar, dan output terpotong juga tidak dicoba ulang. Maksimum output model 1.024 token; respons HTTP dibatasi 32 KiB; hanya satu function call diterima. Semua percobaan dan jeda berbagi AbortSignal/timeout rute. Kegagalan tidak menampilkan payload atau rahasia provider. Tidak ada permintaan provider kedua untuk mengarang jawaban setelah alat dibaca.
+
+## Bukti verifikasi
+
+`server/unified-agent.test.ts` memakai provider mock saja: 16 tes mencakup 10 transaksi berbeda pada 20 November 2026 (8 terkonfirmasi, 2 draf), revisi terbaru tanpa duplikasi, Teri 12/10 lalu agregat dalam kontrak chat yang sama, pencarian pihak/nota/referensi, nama ikan absen/duplikat, tindak lanjut, ruang berbeda, tamu, argumen berbahaya, minimisasi konteks, batas respons, retry, pembatalan, total nol/tidak ada/belum diketahui/overflow, serta status dan pihak eksplisit yang tidak bisa diperluas model. Reproduksi total Ibu Sari hanya memasukkan dua transaksi pihak tersebut, bukan semua pihak; pencarian terkonfirmasi hanya mengembalikan delapan transaksi terkonfirmasi. Jumlah Rp37.000 dan Rp4.000 adalah acuan sintetis tes, bukan transaksi pengguna.
+
+`server/sales-analytics.test.ts` (6 tes) menguji periode alami dalam WIB, pengenalan maksud pertanyaan penjualan tanpa mengubah alur lama, total penjualan bulan ini, kelima fokus termasuk perbandingan periode, Gemini yang hanya memilih alat sementara periode dan angka tetap dari server, serta tamu yang diminta masuk.
+
+Tidak ada panggilan Gemini live/berbayar, pembacaan kunci atau `.env` aktual, deployment, perubahan Vision/audio, atau migrasi database oleh modul ini. Root dan pemilik frontend menguji integrasi HTTP/browser, persistensi, migrasi, mikrofon, responsif, dan PDF secara terpisah. Pemilihan alat model belum divalidasi live pada fase ini.

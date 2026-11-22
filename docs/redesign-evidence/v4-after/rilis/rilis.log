@@ -1,0 +1,27 @@
+LULUS 390 pratinjau sisa jika disimpan · 0 kg
+LULUS 390 laporan Teri timbang 12 kg · 12 kg
+LULUS 390 laporan Teri nota 10 kg · 10 kg
+LULUS 390 laporan Teri tidak terjual 2 kg · 2 kg
+LULUS 390 laporan Teri sisa 0 kg · 0 kg
+LULUS 390 laporan Tongkol 8 / 8 · TongkolPasangan dikonfirmasi | 8 kg | 8 kg
+     kolom: Jenis ikan | Timbang | Nota | Selisih awal | Tidak terjual | Sisa
+     baris: TeriPasangan dikonfirmasi | 12 kg | 10 kg | 2 kg | 2 kg | 0 kg
+     baris: TongkolPasangan dikonfirmasi | 8 kg | 8 kg | 0 kg | — | 0 kg
+LULUS 390 cetak: header, action bar, tombol Ombak, ringkasan layar disembunyikan · .action-bar:none, .site-header:none, .chat-launcher:none, .report-glance:none
+LULUS 390 cetak: tanpa overflow horizontal
+LULUS 390 alur contoh tanpa galat konsol/halaman
+LULUS 1440 pratinjau sisa jika disimpan · 0 kg
+LULUS 1440 laporan Teri timbang 12 kg · 12 kg
+LULUS 1440 laporan Teri nota 10 kg · 10 kg
+LULUS 1440 laporan Teri tidak terjual 2 kg · 2 kg
+LULUS 1440 laporan Teri sisa 0 kg · 0 kg
+LULUS 1440 laporan Tongkol 8 / 8 · TongkolPasangan dikonfirmasi | 8 kg | 8 kg
+     kolom: Jenis ikan | Timbang | Nota | Selisih awal | Tidak terjual | Sisa
+     baris: TeriPasangan dikonfirmasi | 12 kg | 10 kg | 2 kg | 2 kg | 0 kg
+     baris: TongkolPasangan dikonfirmasi | 8 kg | 8 kg | 0 kg | — | 0 kg
+LULUS 1440 alur contoh tanpa galat konsol/halaman
+LULUS masuk akun sintetis -> dashboard · /dashboard
+LULUS Ombak Pintar menjawab pertanyaan arsip · mode Panduan dasar
+     T: Berapa selisih berat bulan November 2026?
+     J: Ombak Pintar Arsip · Ruang pribadi · Panduan dasar Panduan dasar · Selisih berat November 2026 (WIB), dari 1 transaksi terkonfirmasi: • Berat catatan timbang 20 kg · berat di nota 18 kg • Selisih awal 2 kg · dicatat tidak terjual 0 kg • Masih terbuka 2 kg pada 1 pasangan — periksa di transaksi terkait. Rp490.000 Transaksi cocok 1 Terkonfirmasi 1 Draf dalam hasil 0 1 November 2026 – 30 November 202
+LULUS akun dan Ombak Pintar tanpa galat konsol/halaman

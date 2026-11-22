@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
+    "types": [
+      "node"
+    ],
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true
+  },
+  "include": [
+    "server/**/*.ts",
+    "src/vision/**/*.ts",
+    "src/voice/**/*.ts",
+    "src/services/vision.ts",
+    "src/services/voice.ts",
+    "src/agent/**/*.ts",
+    "src/services/inspectionAgent.ts"
+  ],
+  "exclude": [
+    "**/*.test.ts"
+  ]
+}

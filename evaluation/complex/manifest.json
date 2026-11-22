@@ -1,0 +1,109 @@
+{
+  "datasetId": "BL-SINTETIS-KOMPLEKS-01",
+  "assets": [
+    {
+      "file": "SINTETIS-catatan-timbang-clear.jpg",
+      "bytes": 250122,
+      "synthetic": true,
+      "width": 1489,
+      "height": 2105,
+      "megapixels": 3.134
+    },
+    {
+      "file": "SINTETIS-catatan-timbang-clear.pdf",
+      "bytes": 74902,
+      "synthetic": true
+    },
+    {
+      "file": "SINTETIS-catatan-timbang-clear.png",
+      "bytes": 209073,
+      "synthetic": true,
+      "width": 1489,
+      "height": 2105,
+      "megapixels": 3.134
+    },
+    {
+      "file": "SINTETIS-catatan-timbang-clear.svg",
+      "bytes": 11053,
+      "synthetic": true
+    },
+    {
+      "file": "SINTETIS-catatan-timbang-tilt-shadow.jpg",
+      "bytes": 282094,
+      "synthetic": true,
+      "width": 1489,
+      "height": 2105,
+      "megapixels": 3.134
+    },
+    {
+      "file": "SINTETIS-catatan-timbang-tilt-shadow.pdf",
+      "bytes": 76066,
+      "synthetic": true
+    },
+    {
+      "file": "SINTETIS-catatan-timbang-tilt-shadow.png",
+      "bytes": 303812,
+      "synthetic": true,
+      "width": 1489,
+      "height": 2105,
+      "megapixels": 3.134
+    },
+    {
+      "file": "SINTETIS-catatan-timbang-tilt-shadow.svg",
+      "bytes": 11343,
+      "synthetic": true
+    },
+    {
+      "file": "SINTETIS-nota-penjualan-clear.jpg",
+      "bytes": 273442,
+      "synthetic": true,
+      "width": 1489,
+      "height": 2105,
+      "megapixels": 3.134
+    },
+    {
+      "file": "SINTETIS-nota-penjualan-clear.pdf",
+      "bytes": 75093,
+      "synthetic": true
+    },
+    {
+      "file": "SINTETIS-nota-penjualan-clear.png",
+      "bytes": 240712,
+      "synthetic": true,
+      "width": 1489,
+      "height": 2105,
+      "megapixels": 3.134
+    },
+    {
+      "file": "SINTETIS-nota-penjualan-clear.svg",
+      "bytes": 14286,
+      "synthetic": true
+    },
+    {
+      "file": "SINTETIS-nota-penjualan-tilt-shadow.jpg",
+      "bytes": 302160,
+      "synthetic": true,
+      "width": 1489,
+      "height": 2105,
+      "megapixels": 3.134
+    },
+    {
+      "file": "SINTETIS-nota-penjualan-tilt-shadow.pdf",
+      "bytes": 76244,
+      "synthetic": true
+    },
+    {
+      "file": "SINTETIS-nota-penjualan-tilt-shadow.png",
+      "bytes": 356297,
+      "synthetic": true,
+      "width": 1489,
+      "height": 2105,
+      "megapixels": 3.134
+    },
+    {
+      "file": "SINTETIS-nota-penjualan-tilt-shadow.svg",
+      "bytes": 14576,
+      "synthetic": true
+    }
+  ]
+}

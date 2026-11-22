@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="794" height="1123" viewBox="0 0 794 1123"><defs><linearGradient id="shadow"><stop offset="0" stop-color="#23313a" stop-opacity="0"/><stop offset="1" stop-color="#23313a" stop-opacity=".08"/></linearGradient></defs><rect x="0" y="0" width="794" height="1123" fill="#ffffff"/>
+<rect x="42" y="40" width="710" height="10" fill="#103d65"/>
+<text x="42" y="87" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#172c3d" text-anchor="start">NOTA PENJUALAN</text>
+<rect x="609" y="62" width="143" height="36" fill="#fcece7"/>
+<text x="623" y="87" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#8e332b" text-anchor="start">SINTETIS</text>
+<text x="42" y="120" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#526574" text-anchor="start">Rincian penjualan | Set latihan kompleks 01</text>
+<line x1="42" y1="141" x2="752" y2="141" stroke="#c9d1d7" stroke-width="0.8"/>
+<text x="42" y="174" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#172c3d" text-anchor="start">No. referensi  SYN-PL-20261117-01</text>
+<text x="752" y="174" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#172c3d" text-anchor="end">Tanggal  17/11/2026</text>
+<text x="42" y="204" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">Unit latihan  Meja Pesisir A | Transaksi uji yang sama</text>
+<text x="42" y="232" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">Berat dicatat dalam kilogram. Setiap lot merupakan baris terpisah.</text>
+<rect x="42" y="265" width="710" height="51" fill="#e8eef3"/>
+<text x="51" y="295" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#172c3d" text-anchor="start">No.</text>
+<text x="91" y="295" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#172c3d" text-anchor="start">Lot</text>
+<text x="168" y="295" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#172c3d" text-anchor="start">Jenis ikan</text>
+<text x="442" y="295" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#172c3d" text-anchor="end">Kg</text>
+<text x="591" y="295" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#172c3d" text-anchor="end">Harga/kg (Rp)</text>
+<text x="738" y="295" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#172c3d" text-anchor="end">Subtotal (Rp)</text>
+<text x="51" y="345" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">1</text>
+<text x="91" y="345" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">T01</text>
+<text x="168" y="345" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">Teri</text>
+<text x="442" y="345" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">10,00</text>
+<text x="591" y="345" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">25.000</text>
+<text x="738" y="345" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">250.000</text>
+<line x1="42" y1="358" x2="752" y2="358" stroke="#c9d1d7" stroke-width="0.8"/>
+<text x="51" y="384" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">2</text>
+<text x="91" y="384" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">TG01</text>
+<text x="168" y="384" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">Tongkol</text>
+<text x="442" y="384" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">8,00</text>
+<text x="591" y="384" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">30.000</text>
+<text x="738" y="384" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">240.000</text>
+<line x1="42" y1="397" x2="752" y2="397" stroke="#c9d1d7" stroke-width="0.8"/>
+<text x="51" y="423" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">3</text>
+<text x="91" y="423" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">KB01</text>
+<text x="168" y="423" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">Kembung</text>
+<text x="442" y="423" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">5,50</text>
+<text x="591" y="423" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">32.000</text>
+<text x="738" y="423" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">176.000</text>
+<line x1="42" y1="436" x2="752" y2="436" stroke="#c9d1d7" stroke-width="0.8"/>
+<text x="51" y="462" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">4</text>
+<text x="91" y="462" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">KP01</text>
+<text x="168" y="462" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">Kakap</text>
+<text x="442" y="462" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">3,25</text>
+<text x="591" y="462" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">75.000</text>
+<text x="738" y="462" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">243.750</text>
+<line x1="42" y1="475" x2="752" y2="475" stroke="#c9d1d7" stroke-width="0.8"/>
+<text x="51" y="501" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">5</text>
+<text x="91" y="501" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">TN01</text>
+<text x="168" y="501" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">Tuna</text>
+<text x="442" y="501" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">6,75</text>
+<text x="591" y="501" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">68.000</text>
+<text x="738" y="501" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">459.000</text>
+<line x1="42" y1="514" x2="752" y2="514" stroke="#c9d1d7" stroke-width="0.8"/>
+<text x="51" y="540" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">6</text>
+<text x="91" y="540" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">CK01</text>
+<text x="168" y="540" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">Cakalang</text>
+<text x="442" y="540" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">9,125</text>
+<text x="591" y="540" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">28.000</text>
+<text x="738" y="540" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">255.500</text>
+<line x1="42" y1="553" x2="752" y2="553" stroke="#c9d1d7" stroke-width="0.8"/>
+<text x="51" y="579" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">7</text>
+<text x="91" y="579" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">SL01</text>
+<text x="168" y="579" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">Selar</text>
+<text x="442" y="579" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">4,80</text>
+<text x="591" y="579" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">26.000</text>
+<text x="738" y="579" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">124.800</text>
+<line x1="42" y1="592" x2="752" y2="592" stroke="#c9d1d7" stroke-width="0.8"/>
+<text x="51" y="618" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">8</text>
+<text x="91" y="618" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">LY01</text>
+<text x="168" y="618" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">Layang</text>
+<text x="442" y="618" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">7,20</text>
+<text x="591" y="618" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">24.000</text>
+<text x="738" y="618" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">172.800</text>
+<line x1="42" y1="631" x2="752" y2="631" stroke="#c9d1d7" stroke-width="0.8"/>
+<text x="51" y="657" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">9</text>
+<text x="91" y="657" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">KR01</text>
+<text x="168" y="657" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">Kurisi</text>
+<text x="442" y="657" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">2,65</text>
+<text x="591" y="657" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">38.000</text>
+<text x="738" y="657" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">100.700</text>
+<line x1="42" y1="670" x2="752" y2="670" stroke="#c9d1d7" stroke-width="0.8"/>
+<text x="51" y="696" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">10</text>
+<text x="91" y="696" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">T02</text>
+<text x="168" y="696" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">Teri</text>
+<text x="442" y="696" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">4,50</text>
+<text x="591" y="696" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">27.000</text>
+<text x="738" y="696" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">121.500</text>
+<line x1="42" y1="709" x2="752" y2="709" stroke="#c9d1d7" stroke-width="0.8"/>
+<text x="51" y="735" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">11</text>
+<text x="91" y="735" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">TG02</text>
+<text x="168" y="735" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="start">Tongkol</text>
+<text x="442" y="735" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">2,25</text>
+<text x="591" y="735" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">31.000</text>
+<text x="738" y="735" font-family="Arial, sans-serif" font-size="15" font-weight="400" fill="#172c3d" text-anchor="end">69.750</text>
+<line x1="42" y1="748" x2="752" y2="748" stroke="#c9d1d7" stroke-width="0.8"/>
+<text x="365" y="815" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#172c3d" text-anchor="start">Subtotal item</text>
+<text x="738" y="815" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172c3d" text-anchor="end">Rp2.213.800</text>
+<text x="365" y="851" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#172c3d" text-anchor="start">Potongan dokumen</text>
+<text x="738" y="851" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172c3d" text-anchor="end">Rp15.000</text>
+<text x="365" y="887" font-family="Arial, sans-serif" font-size="16" font-weight="400" fill="#172c3d" text-anchor="start">Biaya penanganan</text>
+<text x="738" y="887" font-family="Arial, sans-serif" font-size="17" font-weight="400" fill="#172c3d" text-anchor="end">Rp7.500</text>
+<rect x="346" y="910" width="406" height="54" fill="#edf3f7"/>
+<text x="365" y="945" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#172c3d" text-anchor="start">TOTAL AKHIR</text>
+<text x="738" y="945" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#172c3d" text-anchor="end">Rp2.206.300</text>
+<text x="42" y="988" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#172c3d" text-anchor="start">11 baris penjualan | Total berat nota 64,025 kg</text>
+<line x1="42" y1="1007" x2="752" y2="1007" stroke="#c9d1d7" stroke-width="0.8"/>
+<text x="42" y="1038" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#8e332b" text-anchor="start">SINTETIS - Dokumen latihan. Bukan transaksi nyata.</text>
+<text x="42" y="1067" font-family="Arial, sans-serif" font-size="13" font-weight="400" fill="#526574" text-anchor="start">Dibuat untuk evaluasi BuktiLaut. Tidak memakai data orang atau usaha nyata.</text>
+<text x="752" y="1090" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#172c3d" text-anchor="end">1 / 1</text></svg>

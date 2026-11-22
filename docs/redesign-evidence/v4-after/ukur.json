@@ -1,0 +1,274 @@
+[
+ {
+  "viewport": "320x700",
+  "scrollY": 0,
+  "heroHeight": 876,
+  "stageHeight": 250,
+  "leadWidth": 288,
+  "chips": [
+   {
+    "text": "Timbang · Teri12 kg",
+    "x": 16,
+    "y": 592,
+    "r": 139,
+    "b": 634,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Nota · Teri10 kg",
+    "x": 16,
+    "y": 681,
+    "r": 119,
+    "b": 723,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Selisih2 kg",
+    "x": 16,
+    "y": 774,
+    "r": 101,
+    "b": 816,
+    "anim": "chip-float"
+   }
+  ],
+  "chipPairsOverlap": [],
+  "chipsOnFace": [],
+  "chipsOnTitle": [],
+  "chipsOutsideStage": [],
+  "fabOnChip": [],
+  "fabOnTitle": false,
+  "title": {
+   "x": 16,
+   "y": 85,
+   "r": 301,
+   "b": 188
+  },
+  "face": {
+   "x": 186,
+   "y": 668,
+   "r": 260,
+   "b": 718
+  },
+  "overflowX": false,
+  "srSummary": "Contoh: Teri 12 kg di catatan timbang dan 10 kg di nota, selisih 2 kg. Angka bisa dibaca dari foto atau suara.",
+  "fabHitsWhileScrolling": [],
+  "reducedMotionAnimations": [
+   "none",
+   "none",
+   "none",
+   "none",
+   "none"
+  ],
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "scrollY": 0,
+  "heroHeight": 734,
+  "stageHeight": 250,
+  "leadWidth": 350,
+  "chips": [
+   {
+    "text": "Timbang · Teri12 kg",
+    "x": 20,
+    "y": 479,
+    "r": 147,
+    "b": 527,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Nota · Teri10 kg",
+    "x": 20,
+    "y": 566,
+    "r": 127,
+    "b": 614,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Selisih2 kg",
+    "x": 20,
+    "y": 655,
+    "r": 109,
+    "b": 704,
+    "anim": "chip-float"
+   }
+  ],
+  "chipPairsOverlap": [],
+  "chipsOnFace": [],
+  "chipsOnTitle": [],
+  "chipsOutsideStage": [],
+  "fabOnChip": [],
+  "fabOnTitle": false,
+  "title": {
+   "x": 20,
+   "y": 93,
+   "r": 356,
+   "b": 166
+  },
+  "face": {
+   "x": 241,
+   "y": 554,
+   "r": 322,
+   "b": 608
+  },
+  "overflowX": false,
+  "srSummary": "Contoh: Teri 12 kg di catatan timbang dan 10 kg di nota, selisih 2 kg. Angka bisa dibaca dari foto atau suara.",
+  "fabHitsWhileScrolling": [],
+  "reducedMotionAnimations": [
+   "none",
+   "none",
+   "none",
+   "none",
+   "none"
+  ],
+  "errors": []
+ },
+ {
+  "viewport": "768x1024",
+  "scrollY": 0,
+  "heroHeight": 728,
+  "stageHeight": 250,
+  "leadWidth": 398,
+  "chips": [
+   {
+    "text": "Timbang · Teri12 kg",
+    "x": 203,
+    "y": 473,
+    "r": 330,
+    "b": 521,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Nota · Teri10 kg",
+    "x": 458,
+    "y": 475,
+    "r": 565,
+    "b": 523,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Selisih2 kg",
+    "x": 225,
+    "y": 648,
+    "r": 314,
+    "b": 696,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Foto nota terbaca2 baris",
+    "x": 434,
+    "y": 647,
+    "r": 584,
+    "b": 695,
+    "anim": "chip-float"
+   }
+  ],
+  "chipPairsOverlap": [],
+  "chipsOnFace": [],
+  "chipsOnTitle": [],
+  "chipsOutsideStage": [],
+  "fabOnChip": [],
+  "fabOnTitle": false,
+  "title": {
+   "x": 20,
+   "y": 91,
+   "r": 579,
+   "b": 213
+  },
+  "face": {
+   "x": 355,
+   "y": 549,
+   "r": 436,
+   "b": 603
+  },
+  "overflowX": false,
+  "srSummary": "Contoh: Teri 12 kg di catatan timbang dan 10 kg di nota, selisih 2 kg. Angka bisa dibaca dari foto atau suara.",
+  "fabHitsWhileScrolling": [],
+  "reducedMotionAnimations": [
+   "none",
+   "none",
+   "none",
+   "none",
+   "none"
+  ],
+  "errors": []
+ },
+ {
+  "viewport": "1440x900",
+  "scrollY": 0,
+  "heroHeight": 604,
+  "stageHeight": 420,
+  "leadWidth": 448,
+  "chips": [
+   {
+    "text": "Timbang · Teri12 kg",
+    "x": 805,
+    "y": 190,
+    "r": 932,
+    "b": 242,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Nota · Teri10 kg",
+    "x": 1213,
+    "y": 328,
+    "r": 1320,
+    "b": 380,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Selisih2 kg",
+    "x": 847,
+    "y": 462,
+    "r": 942,
+    "b": 514,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Foto nota terbaca2 baris",
+    "x": 1170,
+    "y": 150,
+    "r": 1320,
+    "b": 202,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Suara“Tongkol delapan kilo”",
+    "x": 1079,
+    "y": 509,
+    "r": 1299,
+    "b": 555,
+    "anim": "chip-float"
+   }
+  ],
+  "chipPairsOverlap": [],
+  "chipsOnFace": [],
+  "chipsOnTitle": [],
+  "chipsOutsideStage": [],
+  "fabOnChip": [],
+  "fabOnTitle": false,
+  "title": {
+   "x": 120,
+   "y": 173,
+   "r": 679,
+   "b": 295
+  },
+  "face": {
+   "x": 1006,
+   "y": 287,
+   "r": 1132,
+   "b": 372
+  },
+  "overflowX": false,
+  "srSummary": "Contoh: Teri 12 kg di catatan timbang dan 10 kg di nota, selisih 2 kg. Angka bisa dibaca dari foto atau suara.",
+  "fabHitsWhileScrolling": [],
+  "reducedMotionAnimations": [
+   "none",
+   "none",
+   "none",
+   "none",
+   "none"
+  ],
+  "errors": []
+ }
+]

@@ -1,0 +1,275 @@
+[
+ {
+  "viewport": "320x700",
+  "scrollY": 0,
+  "heroHeight": 876,
+  "stageHeight": 250,
+  "leadWidth": 288,
+  "chips": [
+   {
+    "text": "Timbang · Teri12 kg",
+    "x": 16,
+    "y": 591,
+    "r": 139,
+    "b": 632,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Nota · Teri10 kg",
+    "x": 201,
+    "y": 640,
+    "r": 304,
+    "b": 682,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Selisih2 kg",
+    "x": 51,
+    "y": 782,
+    "r": 136,
+    "b": 824,
+    "anim": "chip-float"
+   }
+  ],
+  "chipPairsOverlap": [],
+  "chipsOnFace": [
+   "Nota · Teri10 kg"
+  ],
+  "chipsOnTitle": [],
+  "chipsOutsideStage": [],
+  "fabOnChip": [
+   "Nota · Teri10 kg"
+  ],
+  "fabOnTitle": false,
+  "title": {
+   "x": 16,
+   "y": 85,
+   "r": 301,
+   "b": 188
+  },
+  "face": {
+   "x": 130,
+   "y": 665,
+   "r": 211,
+   "b": 720
+  },
+  "overflowX": false,
+  "srSummary": null,
+  "fabHitsWhileScrolling": [
+   {
+    "scrollY": 0,
+    "chips": [
+     "Nota · Teri10 kg"
+    ],
+    "title": false
+   },
+   {
+    "scrollY": 20,
+    "chips": [
+     "Nota · Teri10 kg"
+    ],
+    "title": false
+   },
+   {
+    "scrollY": 40,
+    "chips": [
+     "Nota · Teri10 kg"
+    ],
+    "title": false
+   },
+   {
+    "scrollY": 60,
+    "chips": [
+     "Nota · Teri10 kg"
+    ],
+    "title": false
+   }
+  ],
+  "reducedMotionAnimations": [
+   "none",
+   "none",
+   "none"
+  ],
+  "errors": []
+ },
+ {
+  "viewport": "390x844",
+  "scrollY": 0,
+  "heroHeight": 734,
+  "stageHeight": 250,
+  "leadWidth": 350,
+  "chips": [
+   {
+    "text": "Timbang · Teri12 kg",
+    "x": 20,
+    "y": 478,
+    "r": 147,
+    "b": 526,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Nota · Teri10 kg",
+    "x": 263,
+    "y": 527,
+    "r": 370,
+    "b": 575,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Selisih2 kg",
+    "x": 62,
+    "y": 663,
+    "r": 151,
+    "b": 712,
+    "anim": "chip-float"
+   }
+  ],
+  "chipPairsOverlap": [],
+  "chipsOnFace": [],
+  "chipsOnTitle": [],
+  "chipsOutsideStage": [],
+  "fabOnChip": [],
+  "fabOnTitle": false,
+  "title": {
+   "x": 20,
+   "y": 93,
+   "r": 356,
+   "b": 166
+  },
+  "face": {
+   "x": 164,
+   "y": 552,
+   "r": 246,
+   "b": 606
+  },
+  "overflowX": false,
+  "srSummary": null,
+  "fabHitsWhileScrolling": [],
+  "reducedMotionAnimations": [
+   "none",
+   "none",
+   "none"
+  ],
+  "errors": []
+ },
+ {
+  "viewport": "768x1024",
+  "scrollY": 0,
+  "heroHeight": 728,
+  "stageHeight": 250,
+  "leadWidth": 398,
+  "chips": [
+   {
+    "text": "Timbang · Teri12 kg",
+    "x": 20,
+    "y": 472,
+    "r": 147,
+    "b": 520,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Nota · Teri10 kg",
+    "x": 641,
+    "y": 522,
+    "r": 748,
+    "b": 570,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Selisih2 kg",
+    "x": 107,
+    "y": 657,
+    "r": 196,
+    "b": 705,
+    "anim": "chip-float"
+   }
+  ],
+  "chipPairsOverlap": [],
+  "chipsOnFace": [],
+  "chipsOnTitle": [],
+  "chipsOutsideStage": [],
+  "fabOnChip": [],
+  "fabOnTitle": false,
+  "title": {
+   "x": 20,
+   "y": 91,
+   "r": 579,
+   "b": 213
+  },
+  "face": {
+   "x": 355,
+   "y": 547,
+   "r": 436,
+   "b": 601
+  },
+  "overflowX": false,
+  "srSummary": null,
+  "fabHitsWhileScrolling": [],
+  "reducedMotionAnimations": [
+   "none",
+   "none",
+   "none"
+  ],
+  "errors": []
+ },
+ {
+  "viewport": "1440x900",
+  "scrollY": 0,
+  "heroHeight": 604,
+  "stageHeight": 420,
+  "leadWidth": 448,
+  "chips": [
+   {
+    "text": "Timbang · Teri12 kg",
+    "x": 805,
+    "y": 196,
+    "r": 932,
+    "b": 248,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Nota · Teri10 kg",
+    "x": 1213,
+    "y": 283,
+    "r": 1320,
+    "b": 335,
+    "anim": "chip-float"
+   },
+   {
+    "text": "Selisih2 kg",
+    "x": 878,
+    "y": 470,
+    "r": 974,
+    "b": 521,
+    "anim": "chip-float"
+   }
+  ],
+  "chipPairsOverlap": [],
+  "chipsOnFace": [],
+  "chipsOnTitle": [],
+  "chipsOutsideStage": [],
+  "fabOnChip": [],
+  "fabOnTitle": false,
+  "title": {
+   "x": 120,
+   "y": 173,
+   "r": 679,
+   "b": 295
+  },
+  "face": {
+   "x": 1015,
+   "y": 299,
+   "r": 1135,
+   "b": 378
+  },
+  "overflowX": false,
+  "srSummary": null,
+  "fabHitsWhileScrolling": [],
+  "reducedMotionAnimations": [
+   "none",
+   "none",
+   "none"
+  ],
+  "errors": []
+ }
+]

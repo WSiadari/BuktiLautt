@@ -1,0 +1,18 @@
+import { chromium } from "playwright-core";
+const [out] = process.argv.slice(2);
+const b = await chromium.launch({ channel: "chrome", headless: true });
+const p = await b.newPage({ viewport: { width: 390, height: 844 } });
+await p.goto("http://127.0.0.1:5173/", { waitUntil: "networkidle" });
+await p.getByRole("button", { name: /^Buka contoh/ }).first().click(); await p.waitForTimeout(400);
+await p.getByRole("button", { name: /Konfirmasi catatan timbang/ }).click(); await p.waitForTimeout(600);
+await p.locator('input[placeholder="Belum diketahui"][inputmode="decimal"]').first().fill("10");
+await p.getByRole("button", { name: /Konfirmasi nota/ }).click(); await p.waitForTimeout(600);
+await p.getByRole("button", { name: /Konfirmasi pasangan Teri/ }).click(); await p.waitForTimeout(200);
+await p.getByRole("button", { name: /Konfirmasi pasangan Tongkol/ }).click(); await p.waitForTimeout(300);
+await p.getByRole("button", { name: /Lihat laporan/ }).click(); await p.waitForTimeout(600);
+await p.setViewportSize({ width: 794, height: 1123 });
+await p.emulateMedia({ media: "print" });
+await p.screenshot({ path: out + "/print-preview-a4.png", fullPage: true });
+const vis = await p.evaluate(() => [".report-glance", ".ombak-dock", ".sticky-actions", ".site-header"].map(s => s + ":" + (document.querySelector(s) ? getComputedStyle(document.querySelector(s)).display : "none")));
+console.log(vis.join(" "));
+await b.close();

@@ -1,0 +1,115 @@
+/* Graduations from the weighing scale separate the photograph from its caption. */
+@media screen {
+  .auth-page:where(.auth-registration) { padding: 0; background: #fff; backdrop-filter: none; }
+  :where(.auth-registration) .auth-shell {
+    width: 100%; min-height: 100%; margin: auto; border-radius: 0; box-shadow: none;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+  }
+  :where(.auth-registration) .auth-welcome {
+    display: grid; align-content: space-between; grid-template: 1fr auto / 1fr;
+    padding: 0; min-height: 600px; background: var(--marine);
+  }
+  :where(.auth-registration) .auth-dock-photo {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: 50% 48%; z-index: -2;
+  }
+  :where(.auth-registration) .auth-welcome::after {
+    inset: 0; width: auto; height: auto; border-radius: 0; transform: none;
+    background: linear-gradient(180deg, #071e32bd, transparent 26%);
+    pointer-events: none;
+  }
+  :where(.auth-registration) .auth-brand { align-self: start; margin: clamp(24px, 3.5vw, 54px); }
+  :where(.auth-registration) .auth-brand img { width: clamp(145px, 13vw, 190px); }
+  :where(.auth-registration) .auth-welcome-copy {
+    grid-row: 2; position: relative; margin: 0; padding: 32px clamp(28px, 3.6vw, 60px) 38px;
+    background: var(--marine);
+  }
+  :where(.auth-registration) .auth-welcome-copy::before, .report-brand::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 7px;
+    background: repeating-linear-gradient(90deg, var(--ocean) 0 1px, transparent 1px 10px);
+  }
+  :where(.auth-registration) .auth-greeting { color: white; font-weight: 650; letter-spacing: -.045em; font-size: clamp(1.8rem, 3vw, 3rem); line-height: 1.13; }
+  :where(.auth-registration) .auth-art { position: absolute; right: 24px; bottom: 30px; min-height: 0; padding: 0; }
+  :where(.auth-registration) .auth-mascot { width: clamp(44px,5vw,70px); animation: none; }
+  :where(.auth-registration) .auth-content { width: min(100%, 560px); justify-self: center; padding: 40px clamp(32px,4vw,64px); }
+  :where(.auth-registration) .auth-content h1 { font-size: clamp(2rem, 3.2vw, 3.1rem); font-weight: 680; line-height: 1.06; letter-spacing: -.05em; }
+  :where(.auth-registration) .auth-intro { margin: 12px 0 28px; max-width: 38ch; font-size: 1rem; }
+  :where(.auth-registration) .auth-form label, :where(.auth-registration) .auth-form input, :where(.auth-registration) .auth-google, :where(.auth-registration) .auth-submit { font-size: 1rem; }
+  :where(.auth-registration) .auth-form input, :where(.auth-registration) .auth-password-control, :where(.auth-registration) .auth-submit, :where(.auth-registration) .auth-google { border-radius: 7px; }
+  :where(.auth-registration) .auth-form input, :where(.auth-registration) .auth-submit { min-height: 48px; }
+  :where(.auth-registration) .auth-form .auth-password-control input { min-width: 0; }
+  :where(.auth-registration) .auth-back { margin-bottom: 26px; }
+  :where(.auth-registration) .auth-google-hint { font-size: .82rem; }
+  .auth-page:where(.auth-registration) :is(button, a, input):focus-visible, .ledger-section :is(summary,button,select):focus-visible {
+    outline: 3px solid var(--ocean); outline-offset: 3px;
+  }
+  .ledger-section .ledger-row[data-open-difference] {
+    border-color: #abd0e1; border-inline-start: 4px solid var(--ocean);
+  }
+  .ledger-row[data-open-difference] .ledger-summary {
+    background: #edf6fa; border-radius: 6px 8px 0 0; padding-block: 16px;
+  }
+  .ledger-row .ledger-figures dd { font-size: clamp(1.3rem, 2.1vw, 2rem); letter-spacing: -.035em; }
+  .ledger-row .ledger-open-label { color: #794200; font-weight: 700; }
+  .ledger-row .evidence-link { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #94b8c9; }
+  .ledger-section .settled-pair .ledger-summary { padding-block: 7px; }
+  .ledger-row .ledger-detail { padding-bottom: 14px; }
+  .report-paper .report-brand { position: relative; padding-top: 18px; }
+  .report-paper .report-title { gap: 8px 14px; }
+  .report-workspace .cloud-sync-banner[data-synced="true"] {
+    background: #eef5fa; color: var(--marine); border-color: #cadde9;
+    padding: 3px 12px; align-items: center;
+  }
+  .report-workspace .cloud-sync-banner .text-button { min-height: 44px; }
+  .report-workspace .page-intro { margin-block: 16px; padding-block: 0; align-items: center; }
+  .report-workspace .callout.success { padding-block: 4px; }
+  .report-paper .report-title:has(.report-transaction-reference) {
+    display: grid; grid-template-columns: max-content minmax(0,1fr) minmax(140px,26%);
+    gap: 6px 12px; text-align: left; justify-content: start; align-items: baseline; padding-block: 18px;
+  }
+  .report-title:has(.report-transaction-reference) > div:has(h2) { grid-area: 1 / 1 / 2 / 3; }
+  .report-title:has(.report-transaction-reference) .report-status-group { grid-area: 1 / 3 / 3 / 4; align-self: center; }
+  .report-title .report-transaction-reference { grid-area: 2 / 1; font-size: 1rem; }
+  .report-title .report-archive-revision { grid-area: 2 / 2; }
+  .report-title:has(.report-transaction-reference) .eyebrow { display: none; }
+  .report-paper .report-transaction-metadata { margin: 0 0 12px; padding: 9px 12px; }
+  .report-paper .report-title h2 { color: var(--marine); font-size: clamp(1.55rem, 2.6vw, 2.6rem); line-height: 1.13; letter-spacing: -.035em; }
+  .report-transaction-metadata, .report-archive-revision, .report-transaction-reference { font-variant-numeric: tabular-nums; }
+  .report-paper .report-summary { background: white; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .report-paper .report-summary > div { border-radius: 0; }
+  .report-paper .report-summary > div:first-child {
+    display: grid; align-content: center; gap: 3px; padding: 18px 20px;
+    background: var(--marine); color: white;
+  }
+  .report-summary > div:first-child > :is(span,small,strong) { color: #dceffa; }
+  .report-summary > div:first-child > strong:first-of-type { font-size: 1rem; font-weight: 550; }
+  .report-paper .report-summary .report-final-label { order: -2; color: #fff; margin: 0; font-size: .9rem; }
+  .report-paper .report-summary .report-final-amount { order: -1; color: #fff; font-size: clamp(1.7rem,3vw,2.9rem); line-height: 1.15; margin-bottom: 10px; overflow-wrap: anywhere; }
+  .report-paper table :is(td,th):not(:first-child) { text-align: end; font-variant-numeric: tabular-nums; }
+  .account-actions .button { gap: 8px; min-height: 44px; }
+  .dashboard-inspection, .landing .hero-evidence { border-top: 3px solid var(--marine); }
+  .landing .hero h1, .dashboard-inspection h2 { text-wrap: balance; }
+}
+@media screen and (max-width: 900px) {
+  :where(.auth-registration) .auth-art { display: none; }
+}
+@media screen and (max-width: 760px) {
+  :where(.auth-registration) .auth-shell { display: block; }
+  :where(.auth-registration) .auth-welcome { display: block; min-height: 0; height: clamp(112px, 19svh, 165px); }
+  :where(.auth-registration) .auth-dock-photo { object-position: center 49%; }
+  :where(.auth-registration) .auth-welcome::after { background: linear-gradient(90deg, #071e32c9, transparent 78%); border-bottom: 5px solid var(--ocean); }
+  :where(.auth-registration) .auth-brand { margin: 24px; }
+  :where(.auth-registration) .auth-welcome-copy { display: none; }
+  :where(.auth-registration) .auth-content { margin: 0 auto; padding: 10px 24px 28px; }
+  :where(.auth-registration) .auth-back { margin: 0 0 4px; }
+  :where(.auth-registration) .auth-intro { margin: 8px 0 20px; }
+  :where(.auth-registration) .auth-divider { margin-block: 13px; }
+  .report-paper .report-summary { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .report-paper .report-summary > div:first-child { grid-column: 1 / -1; }
+  .report-workspace .page-intro { flex-direction: row; justify-content: space-between; flex-wrap: wrap; }
+  .report-workspace .page-intro h1 { font-size: 1.5rem; }
+  .report-workspace .cloud-sync-banner[data-synced="true"] { flex-direction: row; gap: 8px; }
+  .report-workspace .cloud-sync-banner .text-button { flex-shrink: 0; }
+  .report-paper .report-title:has(.report-transaction-reference) { grid-template-columns: auto 1fr; }
+  .report-title:has(.report-transaction-reference) .report-status-group { grid-area: 3 / 1 / 4 / 3; justify-self: start; }
+}

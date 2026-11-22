@@ -1,0 +1,146 @@
+{
+  "390": {
+    "notaInitial": {
+      "scrollHeight": 2956,
+      "main": 2816,
+      "rows": 2,
+      "overflowX": false
+    },
+    "notaFilled": {
+      "scrollHeight": 2930,
+      "main": 2790,
+      "rows": 2,
+      "overflowX": false
+    },
+    "fabBox": {
+      "x": 326,
+      "y": 2798.3125,
+      "width": 48,
+      "height": 48
+    },
+    "pairs": {
+      "scrollHeight": 1879,
+      "main": 1739,
+      "rows": 0,
+      "overflowX": false
+    },
+    "overlaps": {
+      "fab": {
+        "x": 326,
+        "y": 1807,
+        "w": 48,
+        "h": 48
+      },
+      "hits": []
+    },
+    "chat": {
+      "input": {
+        "top": 757,
+        "bottom": 805,
+        "height": 48
+      },
+      "send": {
+        "top": 757,
+        "bottom": 805,
+        "height": 48
+      },
+      "messages": {
+        "top": 345,
+        "bottom": 743,
+        "height": 398
+      },
+      "vh": 844
+    },
+    "chatKb": {
+      "input": {
+        "top": 431,
+        "bottom": 479,
+        "height": 48
+      },
+      "send": {
+        "top": 431,
+        "bottom": 479,
+        "height": 48
+      },
+      "messages": {
+        "top": 261,
+        "bottom": 417,
+        "height": 156
+      },
+      "vh": 508
+    },
+    "errs": []
+  },
+  "1440": {
+    "notaInitial": {
+      "scrollHeight": 2232,
+      "main": 2144,
+      "rows": 2,
+      "overflowX": false
+    },
+    "notaFilled": {
+      "scrollHeight": 2211,
+      "main": 2123,
+      "rows": 2,
+      "overflowX": false
+    },
+    "fabBox": {
+      "x": 1384,
+      "y": 828,
+      "width": 48,
+      "height": 48
+    },
+    "pairs": {
+      "scrollHeight": 1136,
+      "main": 1048,
+      "rows": 0,
+      "overflowX": false
+    },
+    "overlaps": {
+      "fab": {
+        "x": 1384,
+        "y": 828,
+        "w": 48,
+        "h": 48
+      },
+      "hits": []
+    },
+    "chat": {
+      "input": {
+        "top": 775,
+        "bottom": 823,
+        "height": 48
+      },
+      "send": {
+        "top": 775,
+        "bottom": 823,
+        "height": 48
+      },
+      "messages": {
+        "top": 397,
+        "bottom": 761,
+        "height": 364
+      },
+      "vh": 900
+    },
+    "chatKb": {
+      "input": {
+        "top": 477,
+        "bottom": 525,
+        "height": 48
+      },
+      "send": {
+        "top": 477,
+        "bottom": 525,
+        "height": 48
+      },
+      "messages": {
+        "top": 270,
+        "bottom": 463,
+        "height": 193
+      },
+      "vh": 564
+    },
+    "errs": []
+  }
+}

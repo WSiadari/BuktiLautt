@@ -1,0 +1,351 @@
+{
+  "datasetId": "BL-SINTETIS-KOMPLEKS-01",
+  "synthetic": true,
+  "originalDocumentsProvided": false,
+  "date": "2026-11-17",
+  "computation": "Python decimal.Decimal only; no application engine imported. Whole-Rupiah ROUND_HALF_UP per line.",
+  "weighing": [
+    {
+      "rowId": "W01",
+      "lot": "T01",
+      "name": "Teri",
+      "weightKg": "12",
+      "printedWeight": "12,00",
+      "unit": "kg"
+    },
+    {
+      "rowId": "W02",
+      "lot": "TG01",
+      "name": "Tongkol",
+      "weightKg": "8",
+      "printedWeight": "8,00",
+      "unit": "kg"
+    },
+    {
+      "rowId": "W03",
+      "lot": "KB01",
+      "name": "Kembung",
+      "weightKg": "5.5",
+      "printedWeight": "5,50",
+      "unit": "kg"
+    },
+    {
+      "rowId": "W04",
+      "lot": "KP01",
+      "name": "Kakap",
+      "weightKg": "3.25",
+      "printedWeight": "3,25",
+      "unit": "kg"
+    },
+    {
+      "rowId": "W05",
+      "lot": "TN01",
+      "name": "Tuna",
+      "weightKg": "6.75",
+      "printedWeight": "6,75",
+      "unit": "kg"
+    },
+    {
+      "rowId": "W06",
+      "lot": "CK01",
+      "name": "Cakalang",
+      "weightKg": "9.125",
+      "printedWeight": "9,125",
+      "unit": "kg"
+    },
+    {
+      "rowId": "W07",
+      "lot": "SL01",
+      "name": "Selar",
+      "weightKg": "4.8",
+      "printedWeight": "4,80",
+      "unit": "kg"
+    },
+    {
+      "rowId": "W08",
+      "lot": "LY01",
+      "name": "Layang",
+      "weightKg": "7.2",
+      "printedWeight": "7,20",
+      "unit": "kg"
+    },
+    {
+      "rowId": "W09",
+      "lot": "KR01",
+      "name": "Kurisi",
+      "weightKg": "2.65",
+      "printedWeight": "2,65",
+      "unit": "kg"
+    },
+    {
+      "rowId": "W10",
+      "lot": "KU01",
+      "name": "Kerapu",
+      "weightKg": "1.75",
+      "printedWeight": "1,75",
+      "unit": "kg"
+    },
+    {
+      "rowId": "W11",
+      "lot": "T02",
+      "name": "Teri",
+      "weightKg": "4.5",
+      "printedWeight": "4,50",
+      "unit": "kg"
+    },
+    {
+      "rowId": "W12",
+      "lot": "TG02",
+      "name": "Tongkol",
+      "weightKg": "2.25",
+      "printedWeight": "2,25",
+      "unit": "kg"
+    }
+  ],
+  "receipt": [
+    {
+      "rowId": "R01",
+      "weighingRowId": "W01",
+      "lot": "T01",
+      "name": "Teri",
+      "weightKg": "10",
+      "printedWeight": "10,00",
+      "unit": "kg",
+      "unitPriceRupiah": "25000",
+      "subtotalRupiah": "250000"
+    },
+    {
+      "rowId": "R02",
+      "weighingRowId": "W02",
+      "lot": "TG01",
+      "name": "Tongkol",
+      "weightKg": "8",
+      "printedWeight": "8,00",
+      "unit": "kg",
+      "unitPriceRupiah": "30000",
+      "subtotalRupiah": "240000"
+    },
+    {
+      "rowId": "R03",
+      "weighingRowId": "W03",
+      "lot": "KB01",
+      "name": "Kembung",
+      "weightKg": "5.5",
+      "printedWeight": "5,50",
+      "unit": "kg",
+      "unitPriceRupiah": "32000",
+      "subtotalRupiah": "176000"
+    },
+    {
+      "rowId": "R04",
+      "weighingRowId": "W04",
+      "lot": "KP01",
+      "name": "Kakap",
+      "weightKg": "3.25",
+      "printedWeight": "3,25",
+      "unit": "kg",
+      "unitPriceRupiah": "75000",
+      "subtotalRupiah": "243750"
+    },
+    {
+      "rowId": "R05",
+      "weighingRowId": "W05",
+      "lot": "TN01",
+      "name": "Tuna",
+      "weightKg": "6.75",
+      "printedWeight": "6,75",
+      "unit": "kg",
+      "unitPriceRupiah": "68000",
+      "subtotalRupiah": "459000"
+    },
+    {
+      "rowId": "R06",
+      "weighingRowId": "W06",
+      "lot": "CK01",
+      "name": "Cakalang",
+      "weightKg": "9.125",
+      "printedWeight": "9,125",
+      "unit": "kg",
+      "unitPriceRupiah": "28000",
+      "subtotalRupiah": "255500"
+    },
+    {
+      "rowId": "R07",
+      "weighingRowId": "W07",
+      "lot": "SL01",
+      "name": "Selar",
+      "weightKg": "4.8",
+      "printedWeight": "4,80",
+      "unit": "kg",
+      "unitPriceRupiah": "26000",
+      "subtotalRupiah": "124800"
+    },
+    {
+      "rowId": "R08",
+      "weighingRowId": "W08",
+      "lot": "LY01",
+      "name": "Layang",
+      "weightKg": "7.2",
+      "printedWeight": "7,20",
+      "unit": "kg",
+      "unitPriceRupiah": "24000",
+      "subtotalRupiah": "172800"
+    },
+    {
+      "rowId": "R09",
+      "weighingRowId": "W09",
+      "lot": "KR01",
+      "name": "Kurisi",
+      "weightKg": "2.65",
+      "printedWeight": "2,65",
+      "unit": "kg",
+      "unitPriceRupiah": "38000",
+      "subtotalRupiah": "100700"
+    },
+    {
+      "rowId": "R10",
+      "weighingRowId": "W11",
+      "lot": "T02",
+      "name": "Teri",
+      "weightKg": "4.5",
+      "printedWeight": "4,50",
+      "unit": "kg",
+      "unitPriceRupiah": "27000",
+      "subtotalRupiah": "121500"
+    },
+    {
+      "rowId": "R11",
+      "weighingRowId": "W12",
+      "lot": "TG02",
+      "name": "Tongkol",
+      "weightKg": "2.25",
+      "printedWeight": "2,25",
+      "unit": "kg",
+      "unitPriceRupiah": "31000",
+      "subtotalRupiah": "69750"
+    }
+  ],
+  "pairs": [
+    {
+      "weighingRowId": "W01",
+      "receiptRowId": "R01",
+      "lot": "T01",
+      "name": "Teri",
+      "initialDifferenceKg": "2",
+      "userAdjustmentKg": "2",
+      "remainingDifferenceKg": "0"
+    },
+    {
+      "weighingRowId": "W02",
+      "receiptRowId": "R02",
+      "lot": "TG01",
+      "name": "Tongkol",
+      "initialDifferenceKg": "0",
+      "userAdjustmentKg": "0",
+      "remainingDifferenceKg": "0"
+    },
+    {
+      "weighingRowId": "W03",
+      "receiptRowId": "R03",
+      "lot": "KB01",
+      "name": "Kembung",
+      "initialDifferenceKg": "0.0",
+      "userAdjustmentKg": "0",
+      "remainingDifferenceKg": "0.0"
+    },
+    {
+      "weighingRowId": "W04",
+      "receiptRowId": "R04",
+      "lot": "KP01",
+      "name": "Kakap",
+      "initialDifferenceKg": "0.00",
+      "userAdjustmentKg": "0",
+      "remainingDifferenceKg": "0.00"
+    },
+    {
+      "weighingRowId": "W05",
+      "receiptRowId": "R05",
+      "lot": "TN01",
+      "name": "Tuna",
+      "initialDifferenceKg": "0.00",
+      "userAdjustmentKg": "0",
+      "remainingDifferenceKg": "0.00"
+    },
+    {
+      "weighingRowId": "W06",
+      "receiptRowId": "R06",
+      "lot": "CK01",
+      "name": "Cakalang",
+      "initialDifferenceKg": "0.000",
+      "userAdjustmentKg": "0",
+      "remainingDifferenceKg": "0.000"
+    },
+    {
+      "weighingRowId": "W07",
+      "receiptRowId": "R07",
+      "lot": "SL01",
+      "name": "Selar",
+      "initialDifferenceKg": "0.0",
+      "userAdjustmentKg": "0",
+      "remainingDifferenceKg": "0.0"
+    },
+    {
+      "weighingRowId": "W08",
+      "receiptRowId": "R08",
+      "lot": "LY01",
+      "name": "Layang",
+      "initialDifferenceKg": "0.0",
+      "userAdjustmentKg": "0",
+      "remainingDifferenceKg": "0.0"
+    },
+    {
+      "weighingRowId": "W09",
+      "receiptRowId": "R09",
+      "lot": "KR01",
+      "name": "Kurisi",
+      "initialDifferenceKg": "0.00",
+      "userAdjustmentKg": "0",
+      "remainingDifferenceKg": "0.00"
+    },
+    {
+      "weighingRowId": "W11",
+      "receiptRowId": "R10",
+      "lot": "T02",
+      "name": "Teri",
+      "initialDifferenceKg": "0.0",
+      "userAdjustmentKg": "0",
+      "remainingDifferenceKg": "0.0"
+    },
+    {
+      "weighingRowId": "W12",
+      "receiptRowId": "R11",
+      "lot": "TG02",
+      "name": "Tongkol",
+      "initialDifferenceKg": "0.00",
+      "userAdjustmentKg": "0",
+      "remainingDifferenceKg": "0.00"
+    }
+  ],
+  "unmatchedWeighingRows": [
+    "W10"
+  ],
+  "unmatchedReceiptRows": [],
+  "distinctSpecies": 10,
+  "totalWeighedKg": "67.775",
+  "totalReceiptKg": "64.025",
+  "subtotalRupiah": "2213800",
+  "documentDiscountRupiah": "15000",
+  "documentFeeRupiah": "7500",
+  "documentFinalRupiah": "2206300",
+  "adjustmentExplanation": "Keterangan sintetis pengguna: 2 kg Teri lot T01 dibawa pulang.",
+  "mockFaults": [
+    {
+      "document": "receipt",
+      "rowId": "R03",
+      "field": "weightKg",
+      "mockValue": "5.05",
+      "referenceValue": "5.5",
+      "purpose": "Deliberate mock error to verify explicit human correction. Not an OCR observation."
+    }
+  ]
+}

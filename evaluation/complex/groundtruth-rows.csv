@@ -1,0 +1,13 @@
+﻿weighing_row,receipt_row,lot,fish,weighed_kg,sold_kg,price_rupiah,line_subtotal_rupiah,initial_difference_kg,user_adjustment_kg,remaining_difference_kg
+W01,R01,T01,Teri,12,10,25000,250000,2,2,0
+W02,R02,TG01,Tongkol,8,8,30000,240000,0,0,0
+W03,R03,KB01,Kembung,5.5,5.5,32000,176000,0.0,0,0.0
+W04,R04,KP01,Kakap,3.25,3.25,75000,243750,0.00,0,0.00
+W05,R05,TN01,Tuna,6.75,6.75,68000,459000,0.00,0,0.00
+W06,R06,CK01,Cakalang,9.125,9.125,28000,255500,0.000,0,0.000
+W07,R07,SL01,Selar,4.8,4.8,26000,124800,0.0,0,0.0
+W08,R08,LY01,Layang,7.2,7.2,24000,172800,0.0,0,0.0
+W09,R09,KR01,Kurisi,2.65,2.65,38000,100700,0.00,0,0.00
+W10,,KU01,Kerapu,1.75,,,,,,
+W11,R10,T02,Teri,4.5,4.5,27000,121500,0.0,0,0.0
+W12,R11,TG02,Tongkol,2.25,2.25,31000,69750,0.00,0,0.00

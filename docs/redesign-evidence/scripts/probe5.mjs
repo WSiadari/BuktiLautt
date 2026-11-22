@@ -1,0 +1,30 @@
+import { chromium } from "playwright-core";
+const out = process.argv[2];
+const b = await chromium.launch({ channel: "chrome", headless: true });
+for (const w of [390, 1440]) {
+  const p = await b.newPage({ viewport: { width: w, height: 900 }, deviceScaleFactor: 2 });
+  await p.goto("http://127.0.0.1:4173/", { waitUntil: "networkidle" });
+  await p.getByRole("button", { name: /^Buka contoh/ }).first().click();
+  await p.waitForTimeout(600);
+  await p.getByRole("button", { name: /Konfirmasi catatan timbang/ }).click();
+  await p.waitForTimeout(700);
+  const r = p.locator(".fish-row").first();
+  await r.scrollIntoViewIfNeeded();
+  await r.screenshot({ path: `${out}/${w}-r6-baris-nota.png` });
+  console.log(w, "nota inputs:", await p.evaluate(() => [...document.querySelectorAll(".fish-row")][0].querySelectorAll("input").length + " top=" + [...[...document.querySelectorAll(".fish-row")][0].querySelectorAll("input")].map((i) => Math.round(i.getBoundingClientRect().top)).join(",")));
+  await p.locator('input[placeholder="Belum diketahui"][inputmode="decimal"]').first().fill("12");
+  await p.getByRole("button", { name: /Konfirmasi nota/ }).click();
+  await p.waitForTimeout(700);
+  await p.getByRole("button", { name: /Konfirmasi pasangan Teri/ }).click();
+  await p.waitForTimeout(300);
+  await p.getByRole("button", { name: /Konfirmasi pasangan Tongkol/ }).click();
+  await p.waitForTimeout(300);
+  await p.getByRole("button", { name: /Lihat laporan/ }).click();
+  await p.waitForTimeout(900);
+  const t = p.locator(".report-title").first();
+  await t.scrollIntoViewIfNeeded();
+  await t.screenshot({ path: `${out}/${w}-r5-status.png` });
+  console.log(w, "badge:", await p.locator(".report-status-group .badge").allInnerTexts());
+  await p.close();
+}
+await b.close();

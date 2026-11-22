@@ -1,0 +1,28 @@
+weighing baris terisi: 12
+receipt baris terisi: 11
+[status] Potongan kosong: Belum diketahui | tombol 'Isi Rp0 untuk potongan' terlihat: true
+[status] Biaya setelah Isi Rp0: Rp0 · isian, belum dikonfirmasi | tombol Isi Rp0 biaya tersisa: 0
+[nota] Total akhir nota terhitung: Rp2.206.300
+[pasangan] Kartu perlu keputusan: 12
+[pasangan] Grup: Perlu keputusan 1 | Sudah cocok 10 | Tanpa pasangan 1
+[pasangan] Teri baris 1 sebelum penyesuaian: Timbang 12 kg Nota baris 1 10 kg Selisih 2 kg
+[pasangan] Teri baris 11: Timbang 4,5 kg Nota baris 10 4,5 kg Selisih 0 kg
+[penyesuaian] Tombol simpan aktif dengan 3 kg: false
+[penyesuaian] Teks dialog 3 kg: Jelaskan selisih berat Nilai sumber tetap 12 kg timbang → 10 kg nota Hasil yang tersimpan: 2 kg Alasan Tidak terjual Berat tidak terjual (kg) Keterangan Anda Sisa jika disimpan — Belum disimpan Penyesuaian tidak terjual harus berada dalam sisa selisih positif. Pratinjau belum mengubah temuan atau laporan. Nilai baru berlaku setelah penyimpanan berhasil. Batal Simpan penyesuaian
+[pasangan] Teri baris 1 setelah penyesuaian: Timbang 12 kg Nota baris 1 10 kg Sisa selisih 0 kg
+[ringkasan] Ringkasan pemeriksaan Selisih berat pada pasangan terkonfirmasi 0 terbuka Selisih dihitung per pasangan. Selisih positif dan negatif tidak saling menghapus. Total akhir nota terhitung Rp2.206.300 Arit
+[laporan] glance: Total akhir nota Rp2.206.300 Status selisih Tidak ada selisih berat terbuka Tindakan berikutnya Cetak atau simpan PDF
+[laporan] summary: Subtotal item terhitung Rp2.213.800 Total akhir nota terhitung Rp2.206.300 Terpisah dari pemeriksaan berat Pasangan dikonfirmasi 11 Dikonfirmasi oleh pengguna Baris tanpa pasangan 1 Dicatat tersendiri
+[laporan] kartu berat: 12
+[laporan] Teri: Teri Pasangan dikonfirmasi Catatan timbang 12 kg Nota penjualan 10 kg Selisih awal 2 kg Tidak terjual 2 kg Sisa berat terbuka 0 kg 2 kg Teri tidak terjual, dibawa pulang (data sintetis).
+[laporan] Teri: Teri Pasangan dikonfirmasi Catatan timbang 4,5 kg Nota penjualan 4,5 kg Selisih awal 0 kg Tidak terjual Belum dicatat Sisa berat terbuka 0 kg
+[laporan] total akhir (aritmetika): Total akhir nota terhitung Rp2.206.300
+[pdf] dibuat
+[akun] URL setelah masuk: http://127.0.0.1:4173/dashboard
+[akun] tombol dashboard: ["Lewati ke isi utama","Lanjutkan · Periksa pasangan","Mulai pemeriksaan baru","Buka arsip transaksi","Kelola ruang kerja"]
+[akun] URL: http://127.0.0.1:4173/ H1: Periksa pasangan
+[arsip] setelah simpan: Tersimpan di akun Salinan revisi arsip akun.
+[arsip] memuat Rp2.206.300: true | ada format 'Rp 2' dengan spasi: false
+[chat] jawaban: 61122-000002 BL-20261122-000005 Terkonfirmasi 17 November 2026 Rp2.206.300 Buka transaksi BL-20261122-000005 BL-20261122-000003 Terkonfirmasi 17 November 2026 Rp2.206.300 Buka transaksi BL-20261122-000003 BL-20261122-000004 Terkonfirmasi 17 November 2026 Rp2.206.300 Buka transaksi BL-20261122-000004
+[chat] format Rupiah tanpa spasi: true
+[errors] []

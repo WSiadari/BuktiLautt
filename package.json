@@ -1,0 +1,39 @@
+{
+  "name": "buktilaut-interactive-prototype",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --experimental-strip-types --test src/lib/*.test.ts src/services/*.test.ts src/vision/*.test.ts src/voice/*.test.ts src/agent/*.test.ts server/*.test.ts evaluation/complex/compare-live.test.ts",
+    "api": "node --experimental-strip-types --env-file-if-exists=.env server/index.ts",
+    "start": "node --experimental-strip-types --env-file-if-exists=.env server/index.ts",
+    "typecheck": "tsc -b && tsc -p tsconfig.server.json",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "google-auth-library": "^11.3.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "10.14.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "fake-indexeddb": "^6.2.8",
+    "globals": "17.14.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "8.72.1",
+    "vite": "^6.0.5"
+  }
+}
