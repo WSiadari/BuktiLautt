@@ -8,10 +8,10 @@ Nelayan, pengepul, dan pencatat TPI sering memegang dua catatan untuk satu penju
 
 | | |
 | --- | --- |
-| Subtema | Ekonomi dan Pemberdayaan Masyarakat |
-| Tim | Yumi (Wahyu Siadari, Michelle Clarissa Watung) |
-| Website | [ISI: URL publik] |
-| Repo | [ISI: URL publik] |
+| Subtema | Ekonomi dan Pemberdayaan Masyarakat          |
+| Tim | Yumi (Wahyu Siadari, Michelle Clarissa Watung)   |
+| Website | https://buktilautt-production.up.railway.app |
+| Repo | https://github.com/WSiadari/BuktiLautt          |
 
 ## Coba alur pemeriksaan
 
