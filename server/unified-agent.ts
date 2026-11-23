@@ -28,6 +28,7 @@ import {
   aggregateStatus,
   explicitArchiveStatus,
   explicitCounterparty,
+  outOfScopeQuestion,
   requestedWorkspaceName,
   salesCounterparty,
   salesIntent,
@@ -38,6 +39,7 @@ import { providerTool } from "./unified-agent/gemini-selector.ts";
 import {
   HELP_TEXT,
   HELP_TOPICS,
+  OUT_OF_SCOPE_TEXT,
   SALES_FOCUS,
   boundedQuery,
   inspectionRequest,
@@ -111,6 +113,9 @@ async function executeUnifiedAgent(
       name: basic ? ("basic" as const) : ("gemini" as const),
       model: basic ? "basic-unified-v1" : config.model,
     };
+  // Cuaca, harga pasar, atau berita tidak ada di catatan pengguna; jangan paksakan ke alat baca.
+  if (outOfScopeQuestion(request.question))
+    return output(request, access, provider, "help", (basic ? "Panduan dasar · " : "") + OUT_OF_SCOPE_TEXT);
   const namedWorkspace = requestedWorkspaceName(request.question);
   if (namedWorkspace && workspaceMismatch(namedWorkspace, access))
     return switchWorkspace(request, access, provider, namedWorkspace);
@@ -473,18 +478,24 @@ async function analyzeSales(
   const range2 = { fromDate: query.fromDate, toDate: query.toDate, counterpartyName };
   const analytics = await access.analyzeArchive(range2);
   signal.throwIfAborted();
-  const wantsCompare =
-    input.compare === true || salesIntent(request.question)?.compare === true;
+  const rule = salesIntent(request.question);
+  const wantsCompare = input.compare === true || rule?.compare === true;
   const previous = wantsCompare
     ? await access.analyzeArchive({ ...previousPeriod(query.fromDate, query.toDate), counterpartyName })
     : null;
   signal.throwIfAborted();
   // Seperti periode, fokus yang jelas dari kata kunci pertanyaan (mis. "paling laku" →
   // per ikan, "siapa pembeli" → pihak) menang atas tebakan model. Pertanyaan umum
-  // ("total penjualan bulan ini") tetap memakai fokus pilihan model.
-  const ruleFocus = salesIntent(request.question)?.focus;
+  // ("total penjualan bulan ini") tetap memakai fokus pilihan model. Dasar dan arah
+  // peringkat ("paling murah" → harga, terendah) juga dibaca dari pertanyaan; model
+  // tidak memilihnya, jadi tanpa kata kunci dipakai bawaan berat, terbanyak.
+  const ruleFocus = rule?.focus;
   const focus =
     ruleFocus && ruleFocus !== "overview" ? ruleFocus : (input.focus as SalesFocus);
+  const ranking = {
+    metric: rule?.metric ?? "weight",
+    direction: rule?.direction ?? "top",
+  } as const;
   const fish = findFish(
     analytics,
     request.question,
@@ -514,7 +525,7 @@ async function analyzeSales(
       access,
       provider,
       "aggregate",
-      prefix + renderSales(focus, analytics, fish, previous),
+      prefix + renderSales(focus, analytics, fish, previous, ranking),
     ),
     aggregate: result.summary,
   };

@@ -6,7 +6,11 @@ import {
   resolveFindingTargets,
 } from "../../src/agent/contract.ts";
 import { basicDateRange } from "./dates.ts";
-import { inspectionRequest, type SalesFocus } from "./tool-schema.ts";
+import {
+  inspectionRequest,
+  type SalesFocus,
+  type SalesRanking,
+} from "./tool-schema.ts";
 import type { Tool } from "./types.ts";
 
 export function requestedWorkspaceName(question: string): string | null {
@@ -80,13 +84,38 @@ export function salesCounterparty(question: string) {
     ? { name: null, unclear: false }
     : party;
 }
+const TOP_RANK =
+  /\b(?:paling\s+(?:laku|banyak|mahal|tinggi|besar)|terlaris|terbanyak|tertinggi|termahal|terbesar)\b/u;
+const BOTTOM_RANK =
+  /\b(?:paling\s+(?:sedikit|kurang|rendah|kecil|sepi|tidak\s+laku|murah)|terendah|terkecil|tersedikit|termurah|kurang\s+laku|sedikit\s+terjual)\b/u;
+const PRICE_METRIC =
+  /\b(?:mahal|murah|termahal|termurah|harga\s+(?:tertinggi|terendah|rata(?:-rata)?|per\s+kg)|harga\s*\/\s*kg|rata-rata\s+harga)\b/u;
+const REVENUE_METRIC =
+  /\b(?:penghasil|paling\s+menguntungkan|(?:pendapatan|penghasilan|om[sz]et|nilai)\s+(?:terbesar|tertinggi|terkecil|terendah|paling\s+(?:besar|tinggi|kecil|rendah)))\b/u;
+/** Arah peringkat: kata kunci "bawah" hanya menang bila muncul lebih dulu daripada kata kunci "atas". */
+function rankDirection(q: string): SalesRanking["direction"] {
+  const top = TOP_RANK.exec(q)?.index ?? -1;
+  const bottom = BOTTOM_RANK.exec(q)?.index ?? -1;
+  return bottom >= 0 && (top < 0 || bottom < top) ? "bottom" : "top";
+}
 /** Kenali pertanyaan analitik penjualan; tanpa periode tetap memakai alur lama. */
 export function salesIntent(
   question: string,
-): { focus: SalesFocus; compare: boolean } | null {
+): ({ focus: SalesFocus; compare: boolean } & SalesRanking) | null {
   const q = question.toLocaleLowerCase("id-ID");
   const compare =
     /\b(?:banding|dibanding(?:kan)?|bandingkan|perbandingan|vs|naik|turun)\b/u.test(q);
+  const metric: SalesRanking["metric"] = PRICE_METRIC.test(q)
+    ? "price"
+    : REVENUE_METRIC.test(q)
+      ? "revenue"
+      : "weight";
+  const direction = rankDirection(q);
+  // Kata peringkat yang menyebut ikan atau barang terjual ("ikan paling sepi",
+  // "paling sedikit terjual", "paling murah") berarti peringkat per jenis ikan.
+  const fishRanking =
+    (TOP_RANK.test(q) || BOTTOM_RANK.test(q) || metric !== "weight") &&
+    /\b(?:ikan|penghasil|laku|terjual|mahal|murah|termahal|termurah)\b/u.test(q);
   const focus: SalesFocus | null =
     /\b(?:selisih|susut|tidak terjual|penyesuaian|hilang)\b/u.test(q)
       ? "weight"
@@ -94,12 +123,26 @@ export function salesIntent(
         ? "counterparty"
         : /\b(?:per hari|harian|tiap hari|setiap hari)\b|\bhari (?:apa|mana|paling|tertinggi|terbaik|terbanyak)\b/u.test(q)
           ? "daily"
-          : /\b(?:(?:per|tiap|setiap)\s+(?:jenis\s+)?ikan|jenis ikan|ikan (?:apa|mana)|paling (?:laku|banyak)|terlaris|terbanyak|harga rata|rata-rata harga|kg|kilo(?:gram)?)\b/u.test(q)
+          : fishRanking || /\b(?:(?:per|tiap|setiap)\s+(?:jenis\s+)?ikan|jenis ikan|ikan (?:apa|mana)|paling (?:laku|banyak)|terlaris|terbanyak|harga rata|rata-rata harga|kg|kilo(?:gram)?)\b/u.test(q)
             ? "fish"
             : /\b(?:jual|penjualan|terjual|pendapatan|omzet|omset|hasil|ringkas(?:an)?|rangkum(?:an)?|rekap|ikan)\b/u.test(q) || compare
               ? "overview"
               : null;
-  return focus ? { focus, compare } : null;
+  return focus ? { focus, compare, metric, direction } : null;
+}
+/**
+ * Pertanyaan tentang dunia luar (cuaca, harga pasar, berita) tidak bisa dijawab dari
+ * catatan pengguna. Nama pihak atau ruang kerja yang disebut ("dengan CV Angin Laut")
+ * tidak dihitung sebagai topik.
+ */
+export function outOfScopeQuestion(question: string): boolean {
+  const lower = (value: string) => value.normalize("NFKC").toLocaleLowerCase("id-ID");
+  let q = lower(question);
+  for (const name of [explicitCounterparty(question).name, requestedWorkspaceName(question)])
+    if (name) q = q.replace(lower(name), " ");
+  return /\b(?:cuaca|hujan|prakiraan|ramalan|badai|gelombang|angin|berita)\b|\bharga\s+pasar(?:an)?\b|\bpasaran\b|\bharga\b[^?!.]*\bdi\s+(?:pasar|pelelangan|tpi)\b/u.test(
+    q,
+  );
 }
 export function selectBasicUnifiedTool(
   request: UnifiedAgentRequest,

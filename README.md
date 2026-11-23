@@ -83,7 +83,7 @@ Arsip demo terpisah: `node evaluation/seed-synthetic.mjs <path-absolut>/demo.sin
 ```bash
 npm run typecheck   # tsc untuk browser dan server
 npm run lint        # ESLint
-npm test            # 232 tes node --test dengan provider AI tiruan
+npm test            # 236 tes node --test dengan provider AI tiruan
 npm run build
 ```
 

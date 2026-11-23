@@ -30,6 +30,14 @@ export const SALES_FOCUS = [
   "daily",
 ] as const;
 export type SalesFocus = (typeof SALES_FOCUS)[number];
+/**
+ * Dasar dan arah peringkat per jenis ikan ("paling murah" → harga, terendah).
+ * Dibaca dari kata kunci pertanyaan, bukan argumen model.
+ */
+export type SalesRanking = {
+  metric: "weight" | "revenue" | "price";
+  direction: "top" | "bottom";
+};
 export const UNIFIED_UTILITY_TOOLS = [
   "get_general_help",
   "request_clarification",
@@ -59,6 +67,15 @@ export const HELP_TEXT: Record<(typeof HELP_TOPICS)[number], string> = {
   general:
     "Mulai dari catatan timbang dan nota, tinjau usulan, konfirmasikan pasangan, lalu catat penyesuaian bila sesuai kondisi. Gunakan arsip untuk menyimpan dan membuka transaksi. Tanyakan langkah tertentu agar panduan lebih tepat.",
 };
+/** Jawaban tetap untuk pertanyaan di luar data pengguna; tidak ada tebakan dari pengetahuan umum. */
+export const OUT_OF_SCOPE_TEXT = [
+  "Ombak Pintar hanya membaca catatan pemeriksaan dan arsip transaksi milik Anda sendiri, jadi pertanyaan ini belum bisa dijawab. Informasi dari luar, seperti harga pasar, cuaca, atau berita, tidak tersedia dan tidak ditebak.",
+  "Contoh pertanyaan yang bisa dijawab:",
+  "• “Total penjualan bulan ini berapa?”",
+  "• “Ikan apa yang paling laku bulan ini?”",
+  "• “Kenapa Teri selisih 2 kg?” (saat pemeriksaan terbuka)",
+  "• “Bagaimana cara mengunggah nota?”",
+].join("\n");
 const objectSchema = (
   properties: Record<string, unknown> = {},
   required: string[] = [],
