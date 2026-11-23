@@ -1,6 +1,10 @@
 import { useState } from "react";
 import type { Row } from "../types";
-import { isClassifiedExtraction, type VisionResult } from "../vision/contract";
+import {
+  isClassifiedExtraction,
+  type DocumentCompatibility,
+  type VisionResult,
+} from "../vision/contract";
 import { proposalImportState } from "../lib/visionReview";
 import { Badge } from "./ui";
 import { reviewLanguage } from "../lib/reviewLanguage";
@@ -9,6 +13,18 @@ import { OmbakPintar } from "./OmbakPintar";
 import { formatRupiah } from "../lib/format";
 
 const amount = (value: number | null) => formatRupiah(value);
+/** Alasan di bawah kartu untuk label "Belum bisa dipakai"; badge terlalu sempit untuk kalimat ini. */
+function blockedNote(reason: DocumentCompatibility["reason"]): string {
+  const why =
+    reason === "unreadable"
+      ? "teks dokumennya tidak cukup jelas untuk dibaca"
+      : reason === "unknown"
+        ? "jenis dokumennya belum dapat dipastikan"
+        : reason === "legacy"
+          ? "pembacaan lama ini belum memeriksa jenis dokumen"
+          : "dokumennya tidak sesuai dengan langkah ini";
+  return `Baris ini hanya disimpan sebagai catatan pembacaan dan belum bisa dipakai karena ${why}.`;
+}
 export function VisionProposal({
   result,
   rows,
@@ -203,7 +219,7 @@ export function VisionProposal({
                 <span>{item.itemName || "Jenis ikan belum diketahui"}</span>
                 <Badge tone={blocked ? "caution" : ""}>
                   {!compatibility.canImport
-                    ? "Catatan pembacaan · belum dapat digunakan"
+                    ? "Belum bisa dipakai"
                     : applied
                       ? "Sudah ditambahkan"
                       : blocked
@@ -239,6 +255,11 @@ export function VisionProposal({
                     <li key={i}>{reviewLanguage(issue)}</li>
                   ))}
                 </ul>
+              )}
+              {!compatibility.canImport && (
+                <p className="meta proposal-blocked-note">
+                  {blockedNote(compatibility.reason)}
+                </p>
               )}
             </article>
           );
