@@ -2528,11 +2528,6 @@ html.v2 .report-glance .glance-next .text-button {
     grid-template-columns: 1.3fr 1fr 1fr;
   }
 }
-@media (max-width: 760px) {
-  html.v2 .report-print-top {
-    display: none !important;
-  }
-}
 html.v2 .report-paper {
   border: 1px solid var(--hair);
   border-radius: var(--r-lg);

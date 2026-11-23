@@ -47,6 +47,7 @@ export function ReportStep({
   documentComparison,
   receiptAmountHint,
 }: ReportStepProps) {
+  const canSaveToArchive = Boolean(accountSession.user) && !cloudArchive;
   return (
     <>
       <div className="page-intro no-print">
@@ -57,12 +58,6 @@ export function ReportStep({
           </h1>
           <p>Angka asli, penyesuaian, dan total nota dalam satu halaman.</p>
         </div>
-        <button
-          className="button primary report-print-top"
-          onClick={() => window.print()}
-        >
-          <Icon name="print" /> Cetak laporan
-        </button>
       </div>
       <section className="report-glance no-print" aria-label="Ringkasan laporan">
         <div className="glance-total">
@@ -82,28 +77,26 @@ export function ReportStep({
             <small>Temuan nominal terbuka · perlu ditinjau</small>
           )}
         </div>
-        <div className="glance-next">
-          <span>Tindakan berikutnya</span>
-          {findings.length ? (
-            <button
-              className="text-button"
-              onClick={() => setStep("matching")}
-            >
-              Jelaskan selisih di Periksa pasangan <Icon name="arrow" />
-            </button>
-          ) : accountSession.user && !cloudArchive ? (
-            <button
-              className="text-button"
-              onClick={() => setAccountOpen(true)}
-            >
-              Simpan ke arsip akun <Icon name="arrow" />
-            </button>
-          ) : (
-            <button className="text-button" onClick={() => window.print()}>
-              Cetak atau simpan PDF <Icon name="arrow" />
-            </button>
-          )}
-        </div>
+        {(findings.length > 0 || canSaveToArchive) && (
+          <div className="glance-next">
+            <span>Tindakan berikutnya</span>
+            {findings.length > 0 ? (
+              <button
+                className="text-button"
+                onClick={() => setStep("matching")}
+              >
+                Jelaskan selisih di Periksa pasangan <Icon name="arrow" />
+              </button>
+            ) : (
+              <button
+                className="text-button"
+                onClick={() => setAccountOpen(true)}
+              >
+                Simpan ke arsip akun <Icon name="arrow" />
+              </button>
+            )}
+          </div>
+        )}
       </section>
       <div className="report-paper">
         <div className="report-brand">
