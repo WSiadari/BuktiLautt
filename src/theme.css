@@ -2587,9 +2587,6 @@ html.v2 .modal:has(.agent-messages) .chat-identity {
 html.v2 .modal:has(.agent-messages) .chat-identity .ombak-character {
   width: 48px;
   height: 43px;
-  padding: 2px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.14);
 }
 html.v2 .modal:has(.agent-messages) .chat-identity .agent-subtitle {
   color: #fff;
